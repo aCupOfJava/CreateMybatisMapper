@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StStormRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StStormR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="STRMDR" jdbcType="NUMERIC" property="strmdr" />
+    <result column="STRMP" jdbcType="NUMERIC" property="strmp" />
+    <result column="WTH" jdbcType="CHAR" property="wth" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_STORM_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StStormR">
+    insert into dbo.ST_STORM_R (STCD, TM, STRMDR, 
+      STRMP, WTH)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{strmdr,jdbcType=NUMERIC}, 
+      #{strmp,jdbcType=NUMERIC}, #{wth,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StStormR">
+    update dbo.ST_STORM_R
+    set STRMDR = #{strmdr,jdbcType=NUMERIC},
+      STRMP = #{strmp,jdbcType=NUMERIC},
+      WTH = #{wth,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, STRMDR, STRMP, WTH
+    from dbo.ST_STORM_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, STRMDR, STRMP, WTH
+    from dbo.ST_STORM_R
+  </select>
+</mapper>

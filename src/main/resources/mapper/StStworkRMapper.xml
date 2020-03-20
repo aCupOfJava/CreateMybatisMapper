@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StStworkRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StStworkR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="V" jdbcType="NUMERIC" property="v" />
+    <result column="T" jdbcType="NUMERIC" property="t" />
+    <result column="CSQ" jdbcType="NUMERIC" property="csq" />
+    <result column="COMMENTS" jdbcType="VARCHAR" property="comments" />
+    <result column="FM" jdbcType="CHAR" property="fm" />
+    <result column="FR" jdbcType="CHAR" property="fr" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_STWORK_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StStworkR">
+    insert into dbo.ST_STWORK_R (STCD, TM, V, T, 
+      CSQ, COMMENTS, FM, FR
+      )
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{v,jdbcType=NUMERIC}, #{t,jdbcType=NUMERIC}, 
+      #{csq,jdbcType=NUMERIC}, #{comments,jdbcType=VARCHAR}, #{fm,jdbcType=CHAR}, #{fr,jdbcType=CHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StStworkR">
+    update dbo.ST_STWORK_R
+    set V = #{v,jdbcType=NUMERIC},
+      T = #{t,jdbcType=NUMERIC},
+      CSQ = #{csq,jdbcType=NUMERIC},
+      COMMENTS = #{comments,jdbcType=VARCHAR},
+      FM = #{fm,jdbcType=CHAR},
+      FR = #{fr,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, V, T, CSQ, COMMENTS, FM, FR
+    from dbo.ST_STWORK_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, V, T, CSQ, COMMENTS, FM, FR
+    from dbo.ST_STWORK_R
+  </select>
+</mapper>

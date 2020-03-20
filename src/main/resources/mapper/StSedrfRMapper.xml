@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StSedrfRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StSedrfR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="WRNF" jdbcType="NUMERIC" property="wrnf" />
+    <result column="STW" jdbcType="NUMERIC" property="stw" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_SEDRF_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StSedrfR">
+    insert into dbo.ST_SEDRF_R (STCD, IDTM, STTDRCD, 
+      WRNF, STW)
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{wrnf,jdbcType=NUMERIC}, #{stw,jdbcType=NUMERIC})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StSedrfR">
+    update dbo.ST_SEDRF_R
+    set WRNF = #{wrnf,jdbcType=NUMERIC},
+      STW = #{stw,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, WRNF, STW
+    from dbo.ST_SEDRF_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, WRNF, STW
+    from dbo.ST_SEDRF_R
+  </select>
+</mapper>

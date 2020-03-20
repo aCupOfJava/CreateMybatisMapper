@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StSoilRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StSoilR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <id column="EXKEY" jdbcType="CHAR" property="exkey" />
+    <result column="VTAVSLM" jdbcType="NUMERIC" property="vtavslm" />
+    <result column="SRLSLM" jdbcType="NUMERIC" property="srlslm" />
+    <result column="SLM10" jdbcType="NUMERIC" property="slm10" />
+    <result column="SLM20" jdbcType="NUMERIC" property="slm20" />
+    <result column="SLM30" jdbcType="NUMERIC" property="slm30" />
+    <result column="SLM40" jdbcType="NUMERIC" property="slm40" />
+    <result column="SLM60" jdbcType="NUMERIC" property="slm60" />
+    <result column="SLM80" jdbcType="NUMERIC" property="slm80" />
+    <result column="SLM100" jdbcType="NUMERIC" property="slm100" />
+    <result column="CRPTY" jdbcType="CHAR" property="crpty" />
+    <result column="CRPGRWPRD" jdbcType="CHAR" property="crpgrwprd" />
+    <result column="HITRSN" jdbcType="CHAR" property="hitrsn" />
+    <result column="SLMMMT" jdbcType="CHAR" property="slmmmt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_SOIL_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StSoilR">
+    insert into dbo.ST_SOIL_R (STCD, TM, EXKEY, 
+      VTAVSLM, SRLSLM, SLM10, 
+      SLM20, SLM30, SLM40, 
+      SLM60, SLM80, SLM100, 
+      CRPTY, CRPGRWPRD, HITRSN, SLMMMT
+      )
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{exkey,jdbcType=CHAR}, 
+      #{vtavslm,jdbcType=NUMERIC}, #{srlslm,jdbcType=NUMERIC}, #{slm10,jdbcType=NUMERIC}, 
+      #{slm20,jdbcType=NUMERIC}, #{slm30,jdbcType=NUMERIC}, #{slm40,jdbcType=NUMERIC}, 
+      #{slm60,jdbcType=NUMERIC}, #{slm80,jdbcType=NUMERIC}, #{slm100,jdbcType=NUMERIC}, 
+      #{crpty,jdbcType=CHAR}, #{crpgrwprd,jdbcType=CHAR}, #{hitrsn,jdbcType=CHAR}, #{slmmmt,jdbcType=CHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StSoilR">
+    update dbo.ST_SOIL_R
+    set VTAVSLM = #{vtavslm,jdbcType=NUMERIC},
+      SRLSLM = #{srlslm,jdbcType=NUMERIC},
+      SLM10 = #{slm10,jdbcType=NUMERIC},
+      SLM20 = #{slm20,jdbcType=NUMERIC},
+      SLM30 = #{slm30,jdbcType=NUMERIC},
+      SLM40 = #{slm40,jdbcType=NUMERIC},
+      SLM60 = #{slm60,jdbcType=NUMERIC},
+      SLM80 = #{slm80,jdbcType=NUMERIC},
+      SLM100 = #{slm100,jdbcType=NUMERIC},
+      CRPTY = #{crpty,jdbcType=CHAR},
+      CRPGRWPRD = #{crpgrwprd,jdbcType=CHAR},
+      HITRSN = #{hitrsn,jdbcType=CHAR},
+      SLMMMT = #{slmmmt,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, EXKEY, VTAVSLM, SRLSLM, SLM10, SLM20, SLM30, SLM40, 
+    SLM60, SLM80, SLM100, CRPTY, CRPGRWPRD, HITRSN, SLMMMT
+    from dbo.ST_SOIL_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, EXKEY, VTAVSLM, SRLSLM, SLM10, SLM20, SLM30, SLM40, SLM60, SLM80, 
+    SLM100, CRPTY, CRPGRWPRD, HITRSN, SLMMMT
+    from dbo.ST_SOIL_R
+  </select>
+</mapper>

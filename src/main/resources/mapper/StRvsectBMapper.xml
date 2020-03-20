@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRvsectBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRvsectB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="MSTM" jdbcType="TIMESTAMP" property="mstm" />
+    <id column="VTNO" jdbcType="NUMERIC" property="vtno" />
+    <result column="BGBK" jdbcType="CHAR" property="bgbk" />
+    <result column="DI" jdbcType="NUMERIC" property="di" />
+    <result column="ZB" jdbcType="NUMERIC" property="zb" />
+    <result column="COMMENTS" jdbcType="CHAR" property="comments" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_RVSECT_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MSTM = #{mstm,jdbcType=TIMESTAMP}
+      and VTNO = #{vtno,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRvsectB">
+    insert into dbo.ST_RVSECT_B (STCD, MSTM, VTNO, 
+      BGBK, DI, ZB, COMMENTS, 
+      MODITIME)
+    values (#{stcd,jdbcType=CHAR}, #{mstm,jdbcType=TIMESTAMP}, #{vtno,jdbcType=NUMERIC}, 
+      #{bgbk,jdbcType=CHAR}, #{di,jdbcType=NUMERIC}, #{zb,jdbcType=NUMERIC}, #{comments,jdbcType=CHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRvsectB">
+    update dbo.ST_RVSECT_B
+    set BGBK = #{bgbk,jdbcType=CHAR},
+      DI = #{di,jdbcType=NUMERIC},
+      ZB = #{zb,jdbcType=NUMERIC},
+      COMMENTS = #{comments,jdbcType=CHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MSTM = #{mstm,jdbcType=TIMESTAMP}
+      and VTNO = #{vtno,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, MSTM, VTNO, BGBK, DI, ZB, COMMENTS, MODITIME
+    from dbo.ST_RVSECT_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MSTM = #{mstm,jdbcType=TIMESTAMP}
+      and VTNO = #{vtno,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, MSTM, VTNO, BGBK, DI, ZB, COMMENTS, MODITIME
+    from dbo.ST_RVSECT_B
+  </select>
+</mapper>

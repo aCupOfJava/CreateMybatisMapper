@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StZqrlBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StZqrlB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="LNNM" jdbcType="CHAR" property="lnnm" />
+    <id column="BGTM" jdbcType="TIMESTAMP" property="bgtm" />
+    <id column="PTNO" jdbcType="NUMERIC" property="ptno" />
+    <result column="Z" jdbcType="NUMERIC" property="z" />
+    <result column="Q" jdbcType="NUMERIC" property="q" />
+    <result column="COMMENTS" jdbcType="CHAR" property="comments" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_ZQRL_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and LNNM = #{lnnm,jdbcType=CHAR}
+      and BGTM = #{bgtm,jdbcType=TIMESTAMP}
+      and PTNO = #{ptno,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StZqrlB">
+    insert into dbo.ST_ZQRL_B (STCD, LNNM, BGTM, 
+      PTNO, Z, Q, COMMENTS, 
+      MODITIME)
+    values (#{stcd,jdbcType=CHAR}, #{lnnm,jdbcType=CHAR}, #{bgtm,jdbcType=TIMESTAMP}, 
+      #{ptno,jdbcType=NUMERIC}, #{z,jdbcType=NUMERIC}, #{q,jdbcType=NUMERIC}, #{comments,jdbcType=CHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StZqrlB">
+    update dbo.ST_ZQRL_B
+    set Z = #{z,jdbcType=NUMERIC},
+      Q = #{q,jdbcType=NUMERIC},
+      COMMENTS = #{comments,jdbcType=CHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and LNNM = #{lnnm,jdbcType=CHAR}
+      and BGTM = #{bgtm,jdbcType=TIMESTAMP}
+      and PTNO = #{ptno,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, LNNM, BGTM, PTNO, Z, Q, COMMENTS, MODITIME
+    from dbo.ST_ZQRL_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and LNNM = #{lnnm,jdbcType=CHAR}
+      and BGTM = #{bgtm,jdbcType=TIMESTAMP}
+      and PTNO = #{ptno,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, LNNM, BGTM, PTNO, Z, Q, COMMENTS, MODITIME
+    from dbo.ST_ZQRL_B
+  </select>
+</mapper>

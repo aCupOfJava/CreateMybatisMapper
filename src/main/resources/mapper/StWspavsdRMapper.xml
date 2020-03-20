@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StWspavsdRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StWspavsdR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <result column="STTDR" jdbcType="NUMERIC" property="sttdr" />
+    <result column="DRAVZ" jdbcType="NUMERIC" property="dravz" />
+    <result column="DRAVQ" jdbcType="NUMERIC" property="dravq" />
+    <result column="DRPW" jdbcType="NUMERIC" property="drpw" />
+    <result column="DRDW" jdbcType="NUMERIC" property="drdw" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_WSPAVSD_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StWspavsdR">
+    insert into dbo.ST_WSPAVSD_R (STCD, IDTM, STTDR, 
+      DRAVZ, DRAVQ, DRPW, 
+      DRDW)
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdr,jdbcType=NUMERIC}, 
+      #{dravz,jdbcType=NUMERIC}, #{dravq,jdbcType=NUMERIC}, #{drpw,jdbcType=NUMERIC}, 
+      #{drdw,jdbcType=NUMERIC})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StWspavsdR">
+    update dbo.ST_WSPAVSD_R
+    set STTDR = #{sttdr,jdbcType=NUMERIC},
+      DRAVZ = #{dravz,jdbcType=NUMERIC},
+      DRAVQ = #{dravq,jdbcType=NUMERIC},
+      DRPW = #{drpw,jdbcType=NUMERIC},
+      DRDW = #{drdw,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDR, DRAVZ, DRAVQ, DRPW, DRDW
+    from dbo.ST_WSPAVSD_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDR, DRAVZ, DRAVQ, DRPW, DRDW
+    from dbo.ST_WSPAVSD_R
+  </select>
+</mapper>

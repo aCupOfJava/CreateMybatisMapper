@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StTmpavRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StTmpavR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="AVATMP" jdbcType="NUMERIC" property="avatmp" />
+    <result column="AVWTMP" jdbcType="NUMERIC" property="avwtmp" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_TMPAV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StTmpavR">
+    insert into dbo.ST_TMPAV_R (STCD, IDTM, STTDRCD, 
+      AVATMP, AVWTMP)
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{avatmp,jdbcType=NUMERIC}, #{avwtmp,jdbcType=NUMERIC})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StTmpavR">
+    update dbo.ST_TMPAV_R
+    set AVATMP = #{avatmp,jdbcType=NUMERIC},
+      AVWTMP = #{avwtmp,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, AVATMP, AVWTMP
+    from dbo.ST_TMPAV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, AVATMP, AVWTMP
+    from dbo.ST_TMPAV_R
+  </select>
+</mapper>

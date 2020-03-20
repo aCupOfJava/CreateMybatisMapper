@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.WqPcpDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.WqPcpD">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="spt" />
+    <id column="PRPNM" jdbcType="CHAR" property="prpnm" />
+    <id column="LYNM" jdbcType="CHAR" property="lynm" />
+    <id column="WBTP" jdbcType="CHAR" property="wbtp" />
+    <result column="AIRT" jdbcType="NUMERIC" property="airt" />
+    <result column="ATM" jdbcType="NUMERIC" property="atm" />
+    <result column="ILMT" jdbcType="NUMERIC" property="ilmt" />
+    <result column="ILMI" jdbcType="NUMERIC" property="ilmi" />
+    <result column="WT" jdbcType="NUMERIC" property="wt" />
+    <result column="PH" jdbcType="NUMERIC" property="ph" />
+    <result column="COND" jdbcType="NUMERIC" property="cond" />
+    <result column="REDOX" jdbcType="NUMERIC" property="redox" />
+    <result column="CHROMA" jdbcType="NUMERIC" property="chroma" />
+    <result column="SMELL" jdbcType="CHAR" property="smell" />
+    <result column="NEOBJ" jdbcType="CHAR" property="neobj" />
+    <result column="TURB" jdbcType="NUMERIC" property="turb" />
+    <result column="CLARITY" jdbcType="NUMERIC" property="clarity" />
+    <result column="SS" jdbcType="NUMERIC" property="ss" />
+    <result column="MNDG" jdbcType="NUMERIC" property="mndg" />
+    <result column="ACID" jdbcType="NUMERIC" property="acid" />
+    <result column="TALKY" jdbcType="NUMERIC" property="talky" />
+    <result column="HCO3" jdbcType="NUMERIC" property="hco3" />
+    <result column="CO3" jdbcType="NUMERIC" property="co3" />
+    <result column="DSCO2" jdbcType="NUMERIC" property="dsco2" />
+    <result column="AGCO2" jdbcType="NUMERIC" property="agco2" />
+    <result column="TSOLID" jdbcType="NUMERIC" property="tsolid" />
+    <result column="TDS" jdbcType="NUMERIC" property="tds" />
+    <result column="TALATV" jdbcType="NUMERIC" property="talatv" />
+    <result column="TBTATV" jdbcType="NUMERIC" property="tbtatv" />
+    <result column="NT" jdbcType="VARCHAR" property="nt" />
+    <result column="SPE_REG_DATA" jdbcType="CHAR" property="speRegData" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="testComTm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.WQ_PCP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.WqPcpD">
+    insert into dbo.WQ_PCP_D (STCD, SPT, PRPNM, 
+      LYNM, WBTP, AIRT, ATM, 
+      ILMT, ILMI, WT, PH, 
+      COND, REDOX, CHROMA, 
+      SMELL, NEOBJ, TURB, CLARITY, 
+      SS, MNDG, ACID, TALKY, 
+      HCO3, CO3, DSCO2, AGCO2, 
+      TSOLID, TDS, TALATV, 
+      TBTATV, NT, SPE_REG_DATA, 
+      TS, TEST_COM_TM)
+    values (#{stcd,jdbcType=CHAR}, #{spt,jdbcType=TIMESTAMP}, #{prpnm,jdbcType=CHAR}, 
+      #{lynm,jdbcType=CHAR}, #{wbtp,jdbcType=CHAR}, #{airt,jdbcType=NUMERIC}, #{atm,jdbcType=NUMERIC}, 
+      #{ilmt,jdbcType=NUMERIC}, #{ilmi,jdbcType=NUMERIC}, #{wt,jdbcType=NUMERIC}, #{ph,jdbcType=NUMERIC}, 
+      #{cond,jdbcType=NUMERIC}, #{redox,jdbcType=NUMERIC}, #{chroma,jdbcType=NUMERIC}, 
+      #{smell,jdbcType=CHAR}, #{neobj,jdbcType=CHAR}, #{turb,jdbcType=NUMERIC}, #{clarity,jdbcType=NUMERIC}, 
+      #{ss,jdbcType=NUMERIC}, #{mndg,jdbcType=NUMERIC}, #{acid,jdbcType=NUMERIC}, #{talky,jdbcType=NUMERIC}, 
+      #{hco3,jdbcType=NUMERIC}, #{co3,jdbcType=NUMERIC}, #{dsco2,jdbcType=NUMERIC}, #{agco2,jdbcType=NUMERIC}, 
+      #{tsolid,jdbcType=NUMERIC}, #{tds,jdbcType=NUMERIC}, #{talatv,jdbcType=NUMERIC}, 
+      #{tbtatv,jdbcType=NUMERIC}, #{nt,jdbcType=VARCHAR}, #{speRegData,jdbcType=CHAR}, 
+      #{ts,jdbcType=TIMESTAMP}, #{testComTm,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.WqPcpD">
+    update dbo.WQ_PCP_D
+    set AIRT = #{airt,jdbcType=NUMERIC},
+      ATM = #{atm,jdbcType=NUMERIC},
+      ILMT = #{ilmt,jdbcType=NUMERIC},
+      ILMI = #{ilmi,jdbcType=NUMERIC},
+      WT = #{wt,jdbcType=NUMERIC},
+      PH = #{ph,jdbcType=NUMERIC},
+      COND = #{cond,jdbcType=NUMERIC},
+      REDOX = #{redox,jdbcType=NUMERIC},
+      CHROMA = #{chroma,jdbcType=NUMERIC},
+      SMELL = #{smell,jdbcType=CHAR},
+      NEOBJ = #{neobj,jdbcType=CHAR},
+      TURB = #{turb,jdbcType=NUMERIC},
+      CLARITY = #{clarity,jdbcType=NUMERIC},
+      SS = #{ss,jdbcType=NUMERIC},
+      MNDG = #{mndg,jdbcType=NUMERIC},
+      ACID = #{acid,jdbcType=NUMERIC},
+      TALKY = #{talky,jdbcType=NUMERIC},
+      HCO3 = #{hco3,jdbcType=NUMERIC},
+      CO3 = #{co3,jdbcType=NUMERIC},
+      DSCO2 = #{dsco2,jdbcType=NUMERIC},
+      AGCO2 = #{agco2,jdbcType=NUMERIC},
+      TSOLID = #{tsolid,jdbcType=NUMERIC},
+      TDS = #{tds,jdbcType=NUMERIC},
+      TALATV = #{talatv,jdbcType=NUMERIC},
+      TBTATV = #{tbtatv,jdbcType=NUMERIC},
+      NT = #{nt,jdbcType=VARCHAR},
+      SPE_REG_DATA = #{speRegData,jdbcType=CHAR},
+      TS = #{ts,jdbcType=TIMESTAMP},
+      TEST_COM_TM = #{testComTm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, SPT, PRPNM, LYNM, WBTP, AIRT, ATM, ILMT, ILMI, WT, 
+    PH, COND, REDOX, CHROMA, SMELL, NEOBJ, TURB, CLARITY, SS, MNDG, ACID, TALKY, HCO3, 
+    CO3, DSCO2, AGCO2, TSOLID, TDS, TALATV, TBTATV, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_PCP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, SPT, PRPNM, LYNM, WBTP, AIRT, ATM, ILMT, ILMI, WT, PH, COND, REDOX, 
+    CHROMA, SMELL, NEOBJ, TURB, CLARITY, SS, MNDG, ACID, TALKY, HCO3, CO3, DSCO2, AGCO2, 
+    TSOLID, TDS, TALATV, TBTATV, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_PCP_D
+  </select>
+</mapper>

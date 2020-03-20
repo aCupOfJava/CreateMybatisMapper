@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StFraparBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StFraparB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TPCYR" jdbcType="NUMERIC" property="tpcyr" />
+    <id column="VARTP" jdbcType="CHAR" property="vartp" />
+    <result column="AVRG" jdbcType="NUMERIC" property="avrg" />
+    <result column="CV" jdbcType="NUMERIC" property="cv" />
+    <result column="CS" jdbcType="NUMERIC" property="cs" />
+    <result column="BGYR" jdbcType="NUMERIC" property="bgyr" />
+    <result column="EDYR" jdbcType="NUMERIC" property="edyr" />
+    <result column="SPNUM" jdbcType="NUMERIC" property="spnum" />
+    <result column="COMMENTS" jdbcType="VARCHAR" property="comments" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_FRAPAR_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TPCYR = #{tpcyr,jdbcType=NUMERIC}
+      and VARTP = #{vartp,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StFraparB">
+    insert into dbo.ST_FRAPAR_B (STCD, TPCYR, VARTP, 
+      AVRG, CV, CS, BGYR, 
+      EDYR, SPNUM, COMMENTS, 
+      MODITIME)
+    values (#{stcd,jdbcType=CHAR}, #{tpcyr,jdbcType=NUMERIC}, #{vartp,jdbcType=CHAR}, 
+      #{avrg,jdbcType=NUMERIC}, #{cv,jdbcType=NUMERIC}, #{cs,jdbcType=NUMERIC}, #{bgyr,jdbcType=NUMERIC}, 
+      #{edyr,jdbcType=NUMERIC}, #{spnum,jdbcType=NUMERIC}, #{comments,jdbcType=VARCHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StFraparB">
+    update dbo.ST_FRAPAR_B
+    set AVRG = #{avrg,jdbcType=NUMERIC},
+      CV = #{cv,jdbcType=NUMERIC},
+      CS = #{cs,jdbcType=NUMERIC},
+      BGYR = #{bgyr,jdbcType=NUMERIC},
+      EDYR = #{edyr,jdbcType=NUMERIC},
+      SPNUM = #{spnum,jdbcType=NUMERIC},
+      COMMENTS = #{comments,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TPCYR = #{tpcyr,jdbcType=NUMERIC}
+      and VARTP = #{vartp,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TPCYR, VARTP, AVRG, CV, CS, BGYR, EDYR, SPNUM, COMMENTS, 
+    MODITIME
+    from dbo.ST_FRAPAR_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TPCYR = #{tpcyr,jdbcType=NUMERIC}
+      and VARTP = #{vartp,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TPCYR, VARTP, AVRG, CV, CS, BGYR, EDYR, SPNUM, COMMENTS, MODITIME
+    from dbo.ST_FRAPAR_B
+  </select>
+</mapper>

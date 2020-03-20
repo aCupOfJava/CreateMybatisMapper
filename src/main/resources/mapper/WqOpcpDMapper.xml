@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.WqOpcpDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.WqOpcpD">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="spt" />
+    <id column="PRPNM" jdbcType="CHAR" property="prpnm" />
+    <id column="LYNM" jdbcType="CHAR" property="lynm" />
+    <id column="WBTP" jdbcType="CHAR" property="wbtp" />
+    <result column="BHC" jdbcType="NUMERIC" property="bhc" />
+    <result column="DDT" jdbcType="NUMERIC" property="ddt" />
+    <result column="ROGOR" jdbcType="NUMERIC" property="rogor" />
+    <result column="DLL" jdbcType="NUMERIC" property="dll" />
+    <result column="JJDLL" jdbcType="NUMERIC" property="jjdll" />
+    <result column="MLLL" jdbcType="NUMERIC" property="mlll" />
+    <result column="DDV" jdbcType="NUMERIC" property="ddv" />
+    <result column="DBCH" jdbcType="NUMERIC" property="dbch" />
+    <result column="ATLJ" jdbcType="NUMERIC" property="atlj" />
+    <result column="BJQ" jdbcType="NUMERIC" property="bjq" />
+    <result column="JNW" jdbcType="NUMERIC" property="jnw" />
+    <result column="XQJZH" jdbcType="NUMERIC" property="xqjzh" />
+    <result column="NXL" jdbcType="NUMERIC" property="nxl" />
+    <result column="NT" jdbcType="VARCHAR" property="nt" />
+    <result column="SPE_REG_DATA" jdbcType="CHAR" property="speRegData" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="testComTm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.WQ_OPCP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.WqOpcpD">
+    insert into dbo.WQ_OPCP_D (STCD, SPT, PRPNM, 
+      LYNM, WBTP, BHC, DDT, 
+      ROGOR, DLL, JJDLL, 
+      MLLL, DDV, DBCH, ATLJ, 
+      BJQ, JNW, XQJZH, NXL, 
+      NT, SPE_REG_DATA, TS, 
+      TEST_COM_TM)
+    values (#{stcd,jdbcType=CHAR}, #{spt,jdbcType=TIMESTAMP}, #{prpnm,jdbcType=CHAR}, 
+      #{lynm,jdbcType=CHAR}, #{wbtp,jdbcType=CHAR}, #{bhc,jdbcType=NUMERIC}, #{ddt,jdbcType=NUMERIC}, 
+      #{rogor,jdbcType=NUMERIC}, #{dll,jdbcType=NUMERIC}, #{jjdll,jdbcType=NUMERIC}, 
+      #{mlll,jdbcType=NUMERIC}, #{ddv,jdbcType=NUMERIC}, #{dbch,jdbcType=NUMERIC}, #{atlj,jdbcType=NUMERIC}, 
+      #{bjq,jdbcType=NUMERIC}, #{jnw,jdbcType=NUMERIC}, #{xqjzh,jdbcType=NUMERIC}, #{nxl,jdbcType=NUMERIC}, 
+      #{nt,jdbcType=VARCHAR}, #{speRegData,jdbcType=CHAR}, #{ts,jdbcType=TIMESTAMP}, 
+      #{testComTm,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.WqOpcpD">
+    update dbo.WQ_OPCP_D
+    set BHC = #{bhc,jdbcType=NUMERIC},
+      DDT = #{ddt,jdbcType=NUMERIC},
+      ROGOR = #{rogor,jdbcType=NUMERIC},
+      DLL = #{dll,jdbcType=NUMERIC},
+      JJDLL = #{jjdll,jdbcType=NUMERIC},
+      MLLL = #{mlll,jdbcType=NUMERIC},
+      DDV = #{ddv,jdbcType=NUMERIC},
+      DBCH = #{dbch,jdbcType=NUMERIC},
+      ATLJ = #{atlj,jdbcType=NUMERIC},
+      BJQ = #{bjq,jdbcType=NUMERIC},
+      JNW = #{jnw,jdbcType=NUMERIC},
+      XQJZH = #{xqjzh,jdbcType=NUMERIC},
+      NXL = #{nxl,jdbcType=NUMERIC},
+      NT = #{nt,jdbcType=VARCHAR},
+      SPE_REG_DATA = #{speRegData,jdbcType=CHAR},
+      TS = #{ts,jdbcType=TIMESTAMP},
+      TEST_COM_TM = #{testComTm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, SPT, PRPNM, LYNM, WBTP, BHC, DDT, ROGOR, DLL, JJDLL, 
+    MLLL, DDV, DBCH, ATLJ, BJQ, JNW, XQJZH, NXL, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_OPCP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, SPT, PRPNM, LYNM, WBTP, BHC, DDT, ROGOR, DLL, JJDLL, MLLL, DDV, DBCH, 
+    ATLJ, BJQ, JNW, XQJZH, NXL, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_OPCP_D
+  </select>
+</mapper>

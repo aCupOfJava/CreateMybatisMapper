@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StWgrwRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StWgrwR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="WLMIN" jdbcType="NUMERIC" property="wlmin" />
+    <result column="WLMINMT" jdbcType="CHAR" property="wlminmt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_WGRW_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StWgrwR">
+    insert into dbo.ST_WGRW_R (STCD, IDTM, STTDRCD, 
+      WLMIN, WLMINMT)
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{wlmin,jdbcType=NUMERIC}, #{wlminmt,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StWgrwR">
+    update dbo.ST_WGRW_R
+    set WLMIN = #{wlmin,jdbcType=NUMERIC},
+      WLMINMT = #{wlminmt,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, WLMIN, WLMINMT
+    from dbo.ST_WGRW_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, WLMIN, WLMINMT
+    from dbo.ST_WGRW_R
+  </select>
+</mapper>

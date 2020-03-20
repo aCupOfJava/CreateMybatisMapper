@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StPptnRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StPptnR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="DRP" jdbcType="NUMERIC" property="drp" />
+    <result column="INTV" jdbcType="NUMERIC" property="intv" />
+    <result column="PDR" jdbcType="NUMERIC" property="pdr" />
+    <result column="DYP" jdbcType="NUMERIC" property="dyp" />
+    <result column="WTH" jdbcType="CHAR" property="wth" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_PPTN_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StPptnR">
+    insert into dbo.ST_PPTN_R (STCD, TM, DRP, 
+      INTV, PDR, DYP, WTH
+      )
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{drp,jdbcType=NUMERIC}, 
+      #{intv,jdbcType=NUMERIC}, #{pdr,jdbcType=NUMERIC}, #{dyp,jdbcType=NUMERIC}, #{wth,jdbcType=CHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StPptnR">
+    update dbo.ST_PPTN_R
+    set DRP = #{drp,jdbcType=NUMERIC},
+      INTV = #{intv,jdbcType=NUMERIC},
+      PDR = #{pdr,jdbcType=NUMERIC},
+      DYP = #{dyp,jdbcType=NUMERIC},
+      WTH = #{wth,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, DRP, INTV, PDR, DYP, WTH
+    from dbo.ST_PPTN_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, DRP, INTV, PDR, DYP, WTH
+    from dbo.ST_PPTN_R
+  </select>
+</mapper>

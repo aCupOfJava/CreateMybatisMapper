@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StGateRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StGateR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <id column="EXKEY" jdbcType="CHAR" property="exkey" />
+    <result column="EQPTP" jdbcType="CHAR" property="eqptp" />
+    <result column="EQPNO" jdbcType="CHAR" property="eqpno" />
+    <result column="GTOPNUM" jdbcType="NUMERIC" property="gtopnum" />
+    <result column="GTOPHGT" jdbcType="NUMERIC" property="gtophgt" />
+    <result column="GTQ" jdbcType="NUMERIC" property="gtq" />
+    <result column="MSQMT" jdbcType="CHAR" property="msqmt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_GATE_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StGateR">
+    insert into dbo.ST_GATE_R (STCD, TM, EXKEY, 
+      EQPTP, EQPNO, GTOPNUM, GTOPHGT, 
+      GTQ, MSQMT)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{exkey,jdbcType=CHAR}, 
+      #{eqptp,jdbcType=CHAR}, #{eqpno,jdbcType=CHAR}, #{gtopnum,jdbcType=NUMERIC}, #{gtophgt,jdbcType=NUMERIC}, 
+      #{gtq,jdbcType=NUMERIC}, #{msqmt,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StGateR">
+    update dbo.ST_GATE_R
+    set EQPTP = #{eqptp,jdbcType=CHAR},
+      EQPNO = #{eqpno,jdbcType=CHAR},
+      GTOPNUM = #{gtopnum,jdbcType=NUMERIC},
+      GTOPHGT = #{gtophgt,jdbcType=NUMERIC},
+      GTQ = #{gtq,jdbcType=NUMERIC},
+      MSQMT = #{msqmt,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, EXKEY, EQPTP, EQPNO, GTOPNUM, GTOPHGT, GTQ, MSQMT
+    from dbo.ST_GATE_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, EXKEY, EQPTP, EQPNO, GTOPNUM, GTOPHGT, GTQ, MSQMT
+    from dbo.ST_GATE_R
+  </select>
+</mapper>

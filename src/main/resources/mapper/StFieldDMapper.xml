@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StFieldDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StFieldD">
+    <id column="TABID" jdbcType="CHAR" property="tabid" />
+    <id column="FLID" jdbcType="CHAR" property="flid" />
+    <result column="FLSID" jdbcType="NUMERIC" property="flsid" />
+    <result column="FLCN" jdbcType="VARCHAR" property="flcn" />
+    <result column="FLEN" jdbcType="VARCHAR" property="flen" />
+    <result column="FLTL" jdbcType="VARCHAR" property="fltl" />
+    <result column="NLAT" jdbcType="CHAR" property="nlat" />
+    <result column="UNNM" jdbcType="VARCHAR" property="unnm" />
+    <result column="FCHSC" jdbcType="CHAR" property="fchsc" />
+    <result column="EUFL" jdbcType="CHAR" property="eufl" />
+    <result column="PKAT" jdbcType="CHAR" property="pkat" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_FIELD_D
+    where TABID = #{tabid,jdbcType=CHAR}
+      and FLID = #{flid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StFieldD">
+    insert into dbo.ST_FIELD_D (TABID, FLID, FLSID, 
+      FLCN, FLEN, FLTL, NLAT, 
+      UNNM, FCHSC, EUFL, PKAT, 
+      MODITIME)
+    values (#{tabid,jdbcType=CHAR}, #{flid,jdbcType=CHAR}, #{flsid,jdbcType=NUMERIC}, 
+      #{flcn,jdbcType=VARCHAR}, #{flen,jdbcType=VARCHAR}, #{fltl,jdbcType=VARCHAR}, #{nlat,jdbcType=CHAR}, 
+      #{unnm,jdbcType=VARCHAR}, #{fchsc,jdbcType=CHAR}, #{eufl,jdbcType=CHAR}, #{pkat,jdbcType=CHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StFieldD">
+    update dbo.ST_FIELD_D
+    set FLSID = #{flsid,jdbcType=NUMERIC},
+      FLCN = #{flcn,jdbcType=VARCHAR},
+      FLEN = #{flen,jdbcType=VARCHAR},
+      FLTL = #{fltl,jdbcType=VARCHAR},
+      NLAT = #{nlat,jdbcType=CHAR},
+      UNNM = #{unnm,jdbcType=VARCHAR},
+      FCHSC = #{fchsc,jdbcType=CHAR},
+      EUFL = #{eufl,jdbcType=CHAR},
+      PKAT = #{pkat,jdbcType=CHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where TABID = #{tabid,jdbcType=CHAR}
+      and FLID = #{flid,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,TABID, FLID, FLSID, FLCN, FLEN, FLTL, NLAT, UNNM, FCHSC, 
+    EUFL, PKAT, MODITIME
+    from dbo.ST_FIELD_D
+    where TABID = #{tabid,jdbcType=CHAR}
+      and FLID = #{flid,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select TABID, FLID, FLSID, FLCN, FLEN, FLTL, NLAT, UNNM, FCHSC, EUFL, PKAT, MODITIME
+    from dbo.ST_FIELD_D
+  </select>
+</mapper>

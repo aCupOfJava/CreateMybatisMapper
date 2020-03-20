@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StSendtoEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StSendtoE">
+    <id column="INSTCD" jdbcType="VARCHAR" property="instcd" />
+    <id column="SLSH" jdbcType="NUMERIC" property="slsh" />
+    <result column="SFNUM" jdbcType="NUMERIC" property="sfnum" />
+    <result column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="SENDSTATUS" jdbcType="VARCHAR" property="sendstatus" />
+    <result column="STAT" jdbcType="VARCHAR" property="stat" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_SENDTO_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and SLSH = #{slsh,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StSendtoE">
+    insert into dbo.ST_SENDTO_E (INSTCD, SLSH, SFNUM, 
+      TM, SENDSTATUS, STAT, 
+      MODITIME)
+    values (#{instcd,jdbcType=VARCHAR}, #{slsh,jdbcType=NUMERIC}, #{sfnum,jdbcType=NUMERIC}, 
+      #{tm,jdbcType=TIMESTAMP}, #{sendstatus,jdbcType=VARCHAR}, #{stat,jdbcType=VARCHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StSendtoE">
+    update dbo.ST_SENDTO_E
+    set SFNUM = #{sfnum,jdbcType=NUMERIC},
+      TM = #{tm,jdbcType=TIMESTAMP},
+      SENDSTATUS = #{sendstatus,jdbcType=VARCHAR},
+      STAT = #{stat,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and SLSH = #{slsh,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,INSTCD, SLSH, SFNUM, TM, SENDSTATUS, STAT, MODITIME
+    from dbo.ST_SENDTO_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and SLSH = #{slsh,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INSTCD, SLSH, SFNUM, TM, SENDSTATUS, STAT, MODITIME
+    from dbo.ST_SENDTO_E
+  </select>
+</mapper>

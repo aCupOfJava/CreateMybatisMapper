@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.WqAwqmdDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.WqAwqmdD">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="spt" />
+    <result column="WT" jdbcType="NUMERIC" property="wt" />
+    <result column="PH" jdbcType="NUMERIC" property="ph" />
+    <result column="COND" jdbcType="NUMERIC" property="cond" />
+    <result column="TURB" jdbcType="NUMERIC" property="turb" />
+    <result column="DOX" jdbcType="NUMERIC" property="dox" />
+    <result column="CODMN" jdbcType="NUMERIC" property="codmn" />
+    <result column="CODCR" jdbcType="NUMERIC" property="codcr" />
+    <result column="TN" jdbcType="NUMERIC" property="tn" />
+    <result column="NH3N" jdbcType="NUMERIC" property="nh3n" />
+    <result column="NO2" jdbcType="NUMERIC" property="no2" />
+    <result column="NO3" jdbcType="NUMERIC" property="no3" />
+    <result column="TP" jdbcType="NUMERIC" property="tp" />
+    <result column="TOC" jdbcType="NUMERIC" property="toc" />
+    <result column="VLPH" jdbcType="NUMERIC" property="vlph" />
+    <result column="CHLA" jdbcType="NUMERIC" property="chla" />
+    <result column="F" jdbcType="NUMERIC" property="f" />
+    <result column="ARS" jdbcType="NUMERIC" property="ars" />
+    <result column="HG" jdbcType="NUMERIC" property="hg" />
+    <result column="CR6" jdbcType="NUMERIC" property="cr6" />
+    <result column="CU" jdbcType="NUMERIC" property="cu" />
+    <result column="PB" jdbcType="NUMERIC" property="pb" />
+    <result column="CD" jdbcType="NUMERIC" property="cd" />
+    <result column="ZN" jdbcType="NUMERIC" property="zn" />
+    <result column="SB" jdbcType="NUMERIC" property="sb" />
+    <result column="SPE_REG_DATA" jdbcType="CHAR" property="speRegData" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="testComTm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.WQ_AWQMD_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.WqAwqmdD">
+    insert into dbo.WQ_AWQMD_D (STCD, SPT, WT, 
+      PH, COND, TURB, DOX, 
+      CODMN, CODCR, TN, NH3N, 
+      NO2, NO3, TP, TOC, 
+      VLPH, CHLA, F, ARS, 
+      HG, CR6, CU, PB, 
+      CD, ZN, SB, SPE_REG_DATA, 
+      TS, TEST_COM_TM)
+    values (#{stcd,jdbcType=CHAR}, #{spt,jdbcType=TIMESTAMP}, #{wt,jdbcType=NUMERIC}, 
+      #{ph,jdbcType=NUMERIC}, #{cond,jdbcType=NUMERIC}, #{turb,jdbcType=NUMERIC}, #{dox,jdbcType=NUMERIC}, 
+      #{codmn,jdbcType=NUMERIC}, #{codcr,jdbcType=NUMERIC}, #{tn,jdbcType=NUMERIC}, #{nh3n,jdbcType=NUMERIC}, 
+      #{no2,jdbcType=NUMERIC}, #{no3,jdbcType=NUMERIC}, #{tp,jdbcType=NUMERIC}, #{toc,jdbcType=NUMERIC}, 
+      #{vlph,jdbcType=NUMERIC}, #{chla,jdbcType=NUMERIC}, #{f,jdbcType=NUMERIC}, #{ars,jdbcType=NUMERIC}, 
+      #{hg,jdbcType=NUMERIC}, #{cr6,jdbcType=NUMERIC}, #{cu,jdbcType=NUMERIC}, #{pb,jdbcType=NUMERIC}, 
+      #{cd,jdbcType=NUMERIC}, #{zn,jdbcType=NUMERIC}, #{sb,jdbcType=NUMERIC}, #{speRegData,jdbcType=CHAR}, 
+      #{ts,jdbcType=TIMESTAMP}, #{testComTm,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.WqAwqmdD">
+    update dbo.WQ_AWQMD_D
+    set WT = #{wt,jdbcType=NUMERIC},
+      PH = #{ph,jdbcType=NUMERIC},
+      COND = #{cond,jdbcType=NUMERIC},
+      TURB = #{turb,jdbcType=NUMERIC},
+      DOX = #{dox,jdbcType=NUMERIC},
+      CODMN = #{codmn,jdbcType=NUMERIC},
+      CODCR = #{codcr,jdbcType=NUMERIC},
+      TN = #{tn,jdbcType=NUMERIC},
+      NH3N = #{nh3n,jdbcType=NUMERIC},
+      NO2 = #{no2,jdbcType=NUMERIC},
+      NO3 = #{no3,jdbcType=NUMERIC},
+      TP = #{tp,jdbcType=NUMERIC},
+      TOC = #{toc,jdbcType=NUMERIC},
+      VLPH = #{vlph,jdbcType=NUMERIC},
+      CHLA = #{chla,jdbcType=NUMERIC},
+      F = #{f,jdbcType=NUMERIC},
+      ARS = #{ars,jdbcType=NUMERIC},
+      HG = #{hg,jdbcType=NUMERIC},
+      CR6 = #{cr6,jdbcType=NUMERIC},
+      CU = #{cu,jdbcType=NUMERIC},
+      PB = #{pb,jdbcType=NUMERIC},
+      CD = #{cd,jdbcType=NUMERIC},
+      ZN = #{zn,jdbcType=NUMERIC},
+      SB = #{sb,jdbcType=NUMERIC},
+      SPE_REG_DATA = #{speRegData,jdbcType=CHAR},
+      TS = #{ts,jdbcType=TIMESTAMP},
+      TEST_COM_TM = #{testComTm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, SPT, WT, PH, COND, TURB, DOX, CODMN, CODCR, TN, NH3N, 
+    NO2, NO3, TP, TOC, VLPH, CHLA, F, ARS, HG, CR6, CU, PB, CD, ZN, SB, SPE_REG_DATA, 
+    TS, TEST_COM_TM
+    from dbo.WQ_AWQMD_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, SPT, WT, PH, COND, TURB, DOX, CODMN, CODCR, TN, NH3N, NO2, NO3, TP, 
+    TOC, VLPH, CHLA, F, ARS, HG, CR6, CU, PB, CD, ZN, SB, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_AWQMD_D
+  </select>
+</mapper>

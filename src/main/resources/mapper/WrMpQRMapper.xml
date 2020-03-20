@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.WrMpQRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.WrMpQR">
+    <id column="MP_CD" jdbcType="CHAR" property="mpCd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="MP_Q" jdbcType="NUMERIC" property="mpQ" />
+    <result column="ACC_W" jdbcType="NUMERIC" property="accW" />
+    <result column="IN_STP_Q" jdbcType="NUMERIC" property="inStpQ" />
+    <result column="ACC_PQ_W" jdbcType="NUMERIC" property="accPqW" />
+    <result column="SPE_REG_DATA" jdbcType="CHAR" property="speRegData" />
+    <result column="TS" jdbcType="DATE" property="ts" />
+    <result column="FM" jdbcType="VARCHAR" property="fm" />
+    <result column="FR" jdbcType="VARCHAR" property="fr" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.WR_MP_Q_R
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.WrMpQR">
+    insert into dbo.WR_MP_Q_R (MP_CD, TM, MP_Q, 
+      ACC_W, IN_STP_Q, ACC_PQ_W, 
+      SPE_REG_DATA, TS, FM, FR
+      )
+    values (#{mpCd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{mpQ,jdbcType=NUMERIC}, 
+      #{accW,jdbcType=NUMERIC}, #{inStpQ,jdbcType=NUMERIC}, #{accPqW,jdbcType=NUMERIC}, 
+      #{speRegData,jdbcType=CHAR}, #{ts,jdbcType=DATE}, #{fm,jdbcType=VARCHAR}, #{fr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.WrMpQR">
+    update dbo.WR_MP_Q_R
+    set MP_Q = #{mpQ,jdbcType=NUMERIC},
+      ACC_W = #{accW,jdbcType=NUMERIC},
+      IN_STP_Q = #{inStpQ,jdbcType=NUMERIC},
+      ACC_PQ_W = #{accPqW,jdbcType=NUMERIC},
+      SPE_REG_DATA = #{speRegData,jdbcType=CHAR},
+      TS = #{ts,jdbcType=DATE},
+      FM = #{fm,jdbcType=VARCHAR},
+      FR = #{fr,jdbcType=VARCHAR}
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,MP_CD, TM, MP_Q, ACC_W, IN_STP_Q, ACC_PQ_W, SPE_REG_DATA, 
+    TS, FM, FR
+    from dbo.WR_MP_Q_R
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select MP_CD, TM, MP_Q, ACC_W, IN_STP_Q, ACC_PQ_W, SPE_REG_DATA, TS, FM, FR
+    from dbo.WR_MP_Q_R
+  </select>
+</mapper>

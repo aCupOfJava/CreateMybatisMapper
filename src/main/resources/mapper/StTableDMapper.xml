@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StTableDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StTableD">
+    <id column="TABID" jdbcType="CHAR" property="tabid" />
+    <result column="TABNO" jdbcType="CHAR" property="tabno" />
+    <result column="TABCN" jdbcType="VARCHAR" property="tabcn" />
+    <result column="TABEN" jdbcType="VARCHAR" property="taben" />
+    <result column="EXCHFL" jdbcType="CHAR" property="exchfl" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.ST_TABLE_D
+    where TABID = #{tabid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StTableD">
+    insert into dbo.ST_TABLE_D (TABID, TABNO, TABCN, 
+      TABEN, EXCHFL, MODITIME
+      )
+    values (#{tabid,jdbcType=CHAR}, #{tabno,jdbcType=CHAR}, #{tabcn,jdbcType=VARCHAR}, 
+      #{taben,jdbcType=VARCHAR}, #{exchfl,jdbcType=CHAR}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StTableD">
+    update dbo.ST_TABLE_D
+    set TABNO = #{tabno,jdbcType=CHAR},
+      TABCN = #{tabcn,jdbcType=VARCHAR},
+      TABEN = #{taben,jdbcType=VARCHAR},
+      EXCHFL = #{exchfl,jdbcType=CHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where TABID = #{tabid,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 'true' as QUERYID,TABID, TABNO, TABCN, TABEN, EXCHFL, MODITIME
+    from dbo.ST_TABLE_D
+    where TABID = #{tabid,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select TABID, TABNO, TABCN, TABEN, EXCHFL, MODITIME
+    from dbo.ST_TABLE_D
+  </select>
+</mapper>

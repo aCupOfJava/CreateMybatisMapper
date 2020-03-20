@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StFsdrBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StFsdrB">
+    <id column="UPSTCD" jdbcType="CHAR" property="upstcd" />
+    <id column="DWSTCD" jdbcType="CHAR" property="dwstcd" />
+    <id column="QMGN" jdbcType="NUMERIC" property="qmgn" />
+    <result column="RCHLEN" jdbcType="NUMERIC" property="rchlen" />
+    <result column="SFTQ" jdbcType="NUMERIC" property="sftq" />
+    <result column="MNTRTM" jdbcType="NUMERIC" property="mntrtm" />
+    <result column="MXTRTM" jdbcType="NUMERIC" property="mxtrtm" />
+    <result column="AVTRTM" jdbcType="NUMERIC" property="avtrtm" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_FSDR_B
+    where UPSTCD = #{upstcd,jdbcType=CHAR}
+      and DWSTCD = #{dwstcd,jdbcType=CHAR}
+      and QMGN = #{qmgn,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StFsdrB">
+    insert into dbo.ST_FSDR_B (UPSTCD, DWSTCD, QMGN, 
+      RCHLEN, SFTQ, MNTRTM, 
+      MXTRTM, AVTRTM, MODITIME
+      )
+    values (#{upstcd,jdbcType=CHAR}, #{dwstcd,jdbcType=CHAR}, #{qmgn,jdbcType=NUMERIC}, 
+      #{rchlen,jdbcType=NUMERIC}, #{sftq,jdbcType=NUMERIC}, #{mntrtm,jdbcType=NUMERIC}, 
+      #{mxtrtm,jdbcType=NUMERIC}, #{avtrtm,jdbcType=NUMERIC}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StFsdrB">
+    update dbo.ST_FSDR_B
+    set RCHLEN = #{rchlen,jdbcType=NUMERIC},
+      SFTQ = #{sftq,jdbcType=NUMERIC},
+      MNTRTM = #{mntrtm,jdbcType=NUMERIC},
+      MXTRTM = #{mxtrtm,jdbcType=NUMERIC},
+      AVTRTM = #{avtrtm,jdbcType=NUMERIC},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where UPSTCD = #{upstcd,jdbcType=CHAR}
+      and DWSTCD = #{dwstcd,jdbcType=CHAR}
+      and QMGN = #{qmgn,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,UPSTCD, DWSTCD, QMGN, RCHLEN, SFTQ, MNTRTM, MXTRTM, AVTRTM, 
+    MODITIME
+    from dbo.ST_FSDR_B
+    where UPSTCD = #{upstcd,jdbcType=CHAR}
+      and DWSTCD = #{dwstcd,jdbcType=CHAR}
+      and QMGN = #{qmgn,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select UPSTCD, DWSTCD, QMGN, RCHLEN, SFTQ, MNTRTM, MXTRTM, AVTRTM, MODITIME
+    from dbo.ST_FSDR_B
+  </select>
+</mapper>

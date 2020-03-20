@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StQliceinfRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StQliceinfR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <id column="EXKEY" jdbcType="CHAR" property="exkey" />
+    <result column="QLTICD" jdbcType="CHAR" property="qlticd" />
+    <result column="RLPSTN" jdbcType="CHAR" property="rlpstn" />
+    <result column="RLDSTN" jdbcType="NUMERIC" property="rldstn" />
+    <result column="QLTITHK" jdbcType="NUMERIC" property="qltithk" />
+    <result column="IOSNDP" jdbcType="NUMERIC" property="iosndp" />
+    <result column="IUDFSTHK" jdbcType="NUMERIC" property="iudfsthk" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_QLICEINF_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StQliceinfR">
+    insert into dbo.ST_QLICEINF_R (STCD, TM, EXKEY, 
+      QLTICD, RLPSTN, RLDSTN, QLTITHK, 
+      IOSNDP, IUDFSTHK)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{exkey,jdbcType=CHAR}, 
+      #{qlticd,jdbcType=CHAR}, #{rlpstn,jdbcType=CHAR}, #{rldstn,jdbcType=NUMERIC}, #{qltithk,jdbcType=NUMERIC}, 
+      #{iosndp,jdbcType=NUMERIC}, #{iudfsthk,jdbcType=NUMERIC})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StQliceinfR">
+    update dbo.ST_QLICEINF_R
+    set QLTICD = #{qlticd,jdbcType=CHAR},
+      RLPSTN = #{rlpstn,jdbcType=CHAR},
+      RLDSTN = #{rldstn,jdbcType=NUMERIC},
+      QLTITHK = #{qltithk,jdbcType=NUMERIC},
+      IOSNDP = #{iosndp,jdbcType=NUMERIC},
+      IUDFSTHK = #{iudfsthk,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, EXKEY, QLTICD, RLPSTN, RLDSTN, QLTITHK, IOSNDP, 
+    IUDFSTHK
+    from dbo.ST_QLICEINF_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, EXKEY, QLTICD, RLPSTN, RLDSTN, QLTITHK, IOSNDP, IUDFSTHK
+    from dbo.ST_QLICEINF_R
+  </select>
+</mapper>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StQticeinfRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StQticeinfR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <id column="EXKEY" jdbcType="CHAR" property="exkey" />
+    <result column="QNTICD" jdbcType="CHAR" property="qnticd" />
+    <result column="RLPSTN" jdbcType="CHAR" property="rlpstn" />
+    <result column="RLDSTN" jdbcType="NUMERIC" property="rldstn" />
+    <result column="LBDIWD" jdbcType="NUMERIC" property="lbdiwd" />
+    <result column="RBDIWD" jdbcType="NUMERIC" property="rbdiwd" />
+    <result column="BDITHK" jdbcType="NUMERIC" property="bdithk" />
+    <result column="IRCON" jdbcType="NUMERIC" property="ircon" />
+    <result column="DITHK" jdbcType="NUMERIC" property="dithk" />
+    <result column="MXIA" jdbcType="NUMERIC" property="mxia" />
+    <result column="MXIV" jdbcType="NUMERIC" property="mxiv" />
+    <result column="IQ" jdbcType="NUMERIC" property="iq" />
+    <result column="FRZPROP" jdbcType="CHAR" property="frzprop" />
+    <result column="BRKPROP" jdbcType="CHAR" property="brkprop" />
+    <result column="DIPCK" jdbcType="NUMERIC" property="dipck" />
+    <result column="IDAMGRW" jdbcType="CHAR" property="idamgrw" />
+    <result column="IDAMHGT" jdbcType="NUMERIC" property="idamhgt" />
+    <result column="IDAMWD" jdbcType="NUMERIC" property="idamwd" />
+    <result column="IDAMUPZ" jdbcType="NUMERIC" property="idamupz" />
+    <result column="IDAMUPWPTN" jdbcType="CHAR" property="idamupwptn" />
+    <result column="ELTY" jdbcType="CHAR" property="elty" />
+    <result column="IQPROP" jdbcType="CHAR" property="iqprop" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_QTICEINF_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StQticeinfR">
+    insert into dbo.ST_QTICEINF_R (STCD, TM, EXKEY, 
+      QNTICD, RLPSTN, RLDSTN, LBDIWD, 
+      RBDIWD, BDITHK, IRCON, 
+      DITHK, MXIA, MXIV, 
+      IQ, FRZPROP, BRKPROP, DIPCK, 
+      IDAMGRW, IDAMHGT, IDAMWD, 
+      IDAMUPZ, IDAMUPWPTN, ELTY, 
+      IQPROP)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{exkey,jdbcType=CHAR}, 
+      #{qnticd,jdbcType=CHAR}, #{rlpstn,jdbcType=CHAR}, #{rldstn,jdbcType=NUMERIC}, #{lbdiwd,jdbcType=NUMERIC}, 
+      #{rbdiwd,jdbcType=NUMERIC}, #{bdithk,jdbcType=NUMERIC}, #{ircon,jdbcType=NUMERIC}, 
+      #{dithk,jdbcType=NUMERIC}, #{mxia,jdbcType=NUMERIC}, #{mxiv,jdbcType=NUMERIC}, 
+      #{iq,jdbcType=NUMERIC}, #{frzprop,jdbcType=CHAR}, #{brkprop,jdbcType=CHAR}, #{dipck,jdbcType=NUMERIC}, 
+      #{idamgrw,jdbcType=CHAR}, #{idamhgt,jdbcType=NUMERIC}, #{idamwd,jdbcType=NUMERIC}, 
+      #{idamupz,jdbcType=NUMERIC}, #{idamupwptn,jdbcType=CHAR}, #{elty,jdbcType=CHAR}, 
+      #{iqprop,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StQticeinfR">
+    update dbo.ST_QTICEINF_R
+    set QNTICD = #{qnticd,jdbcType=CHAR},
+      RLPSTN = #{rlpstn,jdbcType=CHAR},
+      RLDSTN = #{rldstn,jdbcType=NUMERIC},
+      LBDIWD = #{lbdiwd,jdbcType=NUMERIC},
+      RBDIWD = #{rbdiwd,jdbcType=NUMERIC},
+      BDITHK = #{bdithk,jdbcType=NUMERIC},
+      IRCON = #{ircon,jdbcType=NUMERIC},
+      DITHK = #{dithk,jdbcType=NUMERIC},
+      MXIA = #{mxia,jdbcType=NUMERIC},
+      MXIV = #{mxiv,jdbcType=NUMERIC},
+      IQ = #{iq,jdbcType=NUMERIC},
+      FRZPROP = #{frzprop,jdbcType=CHAR},
+      BRKPROP = #{brkprop,jdbcType=CHAR},
+      DIPCK = #{dipck,jdbcType=NUMERIC},
+      IDAMGRW = #{idamgrw,jdbcType=CHAR},
+      IDAMHGT = #{idamhgt,jdbcType=NUMERIC},
+      IDAMWD = #{idamwd,jdbcType=NUMERIC},
+      IDAMUPZ = #{idamupz,jdbcType=NUMERIC},
+      IDAMUPWPTN = #{idamupwptn,jdbcType=CHAR},
+      ELTY = #{elty,jdbcType=CHAR},
+      IQPROP = #{iqprop,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, EXKEY, QNTICD, RLPSTN, RLDSTN, LBDIWD, RBDIWD, 
+    BDITHK, IRCON, DITHK, MXIA, MXIV, IQ, FRZPROP, BRKPROP, DIPCK, IDAMGRW, IDAMHGT, 
+    IDAMWD, IDAMUPZ, IDAMUPWPTN, ELTY, IQPROP
+    from dbo.ST_QTICEINF_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, EXKEY, QNTICD, RLPSTN, RLDSTN, LBDIWD, RBDIWD, BDITHK, IRCON, DITHK, 
+    MXIA, MXIV, IQ, FRZPROP, BRKPROP, DIPCK, IDAMGRW, IDAMHGT, IDAMWD, IDAMUPZ, IDAMUPWPTN, 
+    ELTY, IQPROP
+    from dbo.ST_QTICEINF_R
+  </select>
+</mapper>

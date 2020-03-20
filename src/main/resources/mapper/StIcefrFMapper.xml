@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StIcefrFMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StIcefrF">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="UNITNAME" jdbcType="CHAR" property="unitname" />
+    <id column="PLCD" jdbcType="CHAR" property="plcd" />
+    <id column="FYMDH" jdbcType="TIMESTAMP" property="fymdh" />
+    <id column="IYMDH" jdbcType="TIMESTAMP" property="iymdh" />
+    <id column="YMDH" jdbcType="TIMESTAMP" property="ymdh" />
+    <id column="EXKEY" jdbcType="CHAR" property="exkey" />
+    <result column="FICD" jdbcType="CHAR" property="ficd" />
+    <result column="FIRPSTN" jdbcType="CHAR" property="firpstn" />
+    <result column="FRLDSTN" jdbcType="NUMERIC" property="frldstn" />
+    <result column="FITHK" jdbcType="NUMERIC" property="fithk" />
+    <result column="ITHKCD" jdbcType="CHAR" property="ithkcd" />
+    <result column="FIQ" jdbcType="NUMERIC" property="fiq" />
+    <result column="IQPROP" jdbcType="CHAR" property="iqprop" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_ICEFR_F
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+      and YMDH = #{ymdh,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StIcefrF">
+    insert into dbo.ST_ICEFR_F (STCD, UNITNAME, PLCD, 
+      FYMDH, IYMDH, YMDH, 
+      EXKEY, FICD, FIRPSTN, FRLDSTN, 
+      FITHK, ITHKCD, FIQ, IQPROP
+      )
+    values (#{stcd,jdbcType=CHAR}, #{unitname,jdbcType=CHAR}, #{plcd,jdbcType=CHAR}, 
+      #{fymdh,jdbcType=TIMESTAMP}, #{iymdh,jdbcType=TIMESTAMP}, #{ymdh,jdbcType=TIMESTAMP}, 
+      #{exkey,jdbcType=CHAR}, #{ficd,jdbcType=CHAR}, #{firpstn,jdbcType=CHAR}, #{frldstn,jdbcType=NUMERIC}, 
+      #{fithk,jdbcType=NUMERIC}, #{ithkcd,jdbcType=CHAR}, #{fiq,jdbcType=NUMERIC}, #{iqprop,jdbcType=CHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StIcefrF">
+    update dbo.ST_ICEFR_F
+    set FICD = #{ficd,jdbcType=CHAR},
+      FIRPSTN = #{firpstn,jdbcType=CHAR},
+      FRLDSTN = #{frldstn,jdbcType=NUMERIC},
+      FITHK = #{fithk,jdbcType=NUMERIC},
+      ITHKCD = #{ithkcd,jdbcType=CHAR},
+      FIQ = #{fiq,jdbcType=NUMERIC},
+      IQPROP = #{iqprop,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+      and YMDH = #{ymdh,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, UNITNAME, PLCD, FYMDH, IYMDH, YMDH, EXKEY, FICD, FIRPSTN, 
+    FRLDSTN, FITHK, ITHKCD, FIQ, IQPROP
+    from dbo.ST_ICEFR_F
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+      and YMDH = #{ymdh,jdbcType=TIMESTAMP}
+      and EXKEY = #{exkey,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, UNITNAME, PLCD, FYMDH, IYMDH, YMDH, EXKEY, FICD, FIRPSTN, FRLDSTN, FITHK, 
+    ITHKCD, FIQ, IQPROP
+    from dbo.ST_ICEFR_F
+  </select>
+</mapper>

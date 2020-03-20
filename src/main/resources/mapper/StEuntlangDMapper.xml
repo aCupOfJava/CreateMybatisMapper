@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StEuntlangDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StEuntlangD">
+    <id column="FLID" jdbcType="VARCHAR" property="flid" />
+    <id column="EUCD" jdbcType="VARCHAR" property="eucd" />
+    <result column="NTLANG" jdbcType="VARCHAR" property="ntlang" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_EUNTLANG_D
+    where FLID = #{flid,jdbcType=VARCHAR}
+      and EUCD = #{eucd,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StEuntlangD">
+    insert into dbo.ST_EUNTLANG_D (FLID, EUCD, NTLANG, 
+      MODITIME)
+    values (#{flid,jdbcType=VARCHAR}, #{eucd,jdbcType=VARCHAR}, #{ntlang,jdbcType=VARCHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StEuntlangD">
+    update dbo.ST_EUNTLANG_D
+    set NTLANG = #{ntlang,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where FLID = #{flid,jdbcType=VARCHAR}
+      and EUCD = #{eucd,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,FLID, EUCD, NTLANG, MODITIME
+    from dbo.ST_EUNTLANG_D
+    where FLID = #{flid,jdbcType=VARCHAR}
+      and EUCD = #{eucd,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select FLID, EUCD, NTLANG, MODITIME
+    from dbo.ST_EUNTLANG_D
+  </select>
+</mapper>

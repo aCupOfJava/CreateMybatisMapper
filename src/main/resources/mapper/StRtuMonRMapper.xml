@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRtuMonRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRtuMonR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="V" jdbcType="NUMERIC" property="v" />
+    <result column="CSQ" jdbcType="NUMERIC" property="csq" />
+    <result column="PUMP_A_V" jdbcType="NUMERIC" property="pumpAV" />
+    <result column="PUMP_B_V" jdbcType="NUMERIC" property="pumpBV" />
+    <result column="PUMP_C_V" jdbcType="NUMERIC" property="pumpCV" />
+    <result column="PUMP_A_C" jdbcType="NUMERIC" property="pumpAC" />
+    <result column="PUMP_B_C" jdbcType="NUMERIC" property="pumpBC" />
+    <result column="PUMPC_C" jdbcType="NUMERIC" property="pumpcC" />
+    <result column="ACPWR_COND" jdbcType="CHAR" property="acpwrCond" />
+    <result column="PUMP_WORK_COND" jdbcType="CHAR" property="pumpWorkCond" />
+    <result column="MEM_COND" jdbcType="CHAR" property="memCond" />
+    <result column="CHAS_DOOR_COND" jdbcType="CHAR" property="chasDoorCond" />
+    <result column="OTH_WARM" jdbcType="CHAR" property="othWarm" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+    <result column="NT" jdbcType="VARCHAR" property="nt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_RTU_MON_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRtuMonR">
+    insert into dbo.ST_RTU_MON_R (STCD, TM, V, CSQ, 
+      PUMP_A_V, PUMP_B_V, PUMP_C_V, 
+      PUMP_A_C, PUMP_B_C, PUMPC_C, 
+      ACPWR_COND, PUMP_WORK_COND, MEM_COND, 
+      CHAS_DOOR_COND, OTH_WARM, TS, 
+      NT)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{v,jdbcType=NUMERIC}, #{csq,jdbcType=NUMERIC}, 
+      #{pumpAV,jdbcType=NUMERIC}, #{pumpBV,jdbcType=NUMERIC}, #{pumpCV,jdbcType=NUMERIC}, 
+      #{pumpAC,jdbcType=NUMERIC}, #{pumpBC,jdbcType=NUMERIC}, #{pumpcC,jdbcType=NUMERIC}, 
+      #{acpwrCond,jdbcType=CHAR}, #{pumpWorkCond,jdbcType=CHAR}, #{memCond,jdbcType=CHAR}, 
+      #{chasDoorCond,jdbcType=CHAR}, #{othWarm,jdbcType=CHAR}, #{ts,jdbcType=TIMESTAMP}, 
+      #{nt,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRtuMonR">
+    update dbo.ST_RTU_MON_R
+    set V = #{v,jdbcType=NUMERIC},
+      CSQ = #{csq,jdbcType=NUMERIC},
+      PUMP_A_V = #{pumpAV,jdbcType=NUMERIC},
+      PUMP_B_V = #{pumpBV,jdbcType=NUMERIC},
+      PUMP_C_V = #{pumpCV,jdbcType=NUMERIC},
+      PUMP_A_C = #{pumpAC,jdbcType=NUMERIC},
+      PUMP_B_C = #{pumpBC,jdbcType=NUMERIC},
+      PUMPC_C = #{pumpcC,jdbcType=NUMERIC},
+      ACPWR_COND = #{acpwrCond,jdbcType=CHAR},
+      PUMP_WORK_COND = #{pumpWorkCond,jdbcType=CHAR},
+      MEM_COND = #{memCond,jdbcType=CHAR},
+      CHAS_DOOR_COND = #{chasDoorCond,jdbcType=CHAR},
+      OTH_WARM = #{othWarm,jdbcType=CHAR},
+      TS = #{ts,jdbcType=TIMESTAMP},
+      NT = #{nt,jdbcType=VARCHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, V, CSQ, PUMP_A_V, PUMP_B_V, PUMP_C_V, PUMP_A_C, 
+    PUMP_B_C, PUMPC_C, ACPWR_COND, PUMP_WORK_COND, MEM_COND, CHAS_DOOR_COND, OTH_WARM, 
+    TS, NT
+    from dbo.ST_RTU_MON_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, V, CSQ, PUMP_A_V, PUMP_B_V, PUMP_C_V, PUMP_A_C, PUMP_B_C, PUMPC_C, 
+    ACPWR_COND, PUMP_WORK_COND, MEM_COND, CHAS_DOOR_COND, OTH_WARM, TS, NT
+    from dbo.ST_RTU_MON_R
+  </select>
+</mapper>

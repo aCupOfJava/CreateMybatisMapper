@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRsvrRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRsvrR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="RZ" jdbcType="NUMERIC" property="rz" />
+    <result column="INQ" jdbcType="NUMERIC" property="inq" />
+    <result column="W" jdbcType="NUMERIC" property="w" />
+    <result column="BLRZ" jdbcType="NUMERIC" property="blrz" />
+    <result column="OTQ" jdbcType="NUMERIC" property="otq" />
+    <result column="RWCHRCD" jdbcType="CHAR" property="rwchrcd" />
+    <result column="RWPTN" jdbcType="CHAR" property="rwptn" />
+    <result column="INQDR" jdbcType="NUMERIC" property="inqdr" />
+    <result column="MSQMT" jdbcType="CHAR" property="msqmt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_RSVR_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRsvrR">
+    insert into dbo.ST_RSVR_R (STCD, TM, RZ, 
+      INQ, W, BLRZ, OTQ, 
+      RWCHRCD, RWPTN, INQDR, MSQMT
+      )
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{rz,jdbcType=NUMERIC}, 
+      #{inq,jdbcType=NUMERIC}, #{w,jdbcType=NUMERIC}, #{blrz,jdbcType=NUMERIC}, #{otq,jdbcType=NUMERIC}, 
+      #{rwchrcd,jdbcType=CHAR}, #{rwptn,jdbcType=CHAR}, #{inqdr,jdbcType=NUMERIC}, #{msqmt,jdbcType=CHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRsvrR">
+    update dbo.ST_RSVR_R
+    set RZ = #{rz,jdbcType=NUMERIC},
+      INQ = #{inq,jdbcType=NUMERIC},
+      W = #{w,jdbcType=NUMERIC},
+      BLRZ = #{blrz,jdbcType=NUMERIC},
+      OTQ = #{otq,jdbcType=NUMERIC},
+      RWCHRCD = #{rwchrcd,jdbcType=CHAR},
+      RWPTN = #{rwptn,jdbcType=CHAR},
+      INQDR = #{inqdr,jdbcType=NUMERIC},
+      MSQMT = #{msqmt,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, RZ, INQ, W, BLRZ, OTQ, RWCHRCD, RWPTN, INQDR, 
+    MSQMT
+    from dbo.ST_RSVR_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, RZ, INQ, W, BLRZ, OTQ, RWCHRCD, RWPTN, INQDR, MSQMT
+    from dbo.ST_RSVR_R
+  </select>
+</mapper>

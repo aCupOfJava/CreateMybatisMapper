@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRecvstatEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRecvstatE">
+    <id column="INSTCD" jdbcType="VARCHAR" property="instcd" />
+    <id column="COUNTDAY" jdbcType="TIMESTAMP" property="countday" />
+    <id column="STTDRCD" jdbcType="VARCHAR" property="sttdrcd" />
+    <id column="FRGRD" jdbcType="VARCHAR" property="frgrd" />
+    <id column="OPERATION" jdbcType="VARCHAR" property="operation" />
+    <id column="INFTYPE" jdbcType="VARCHAR" property="inftype" />
+    <result column="STCDNUM" jdbcType="NUMERIC" property="stcdnum" />
+    <result column="INFNUM" jdbcType="NUMERIC" property="infnum" />
+    <result column="COUNTL30" jdbcType="NUMERIC" property="countl30" />
+    <result column="COUNTB60" jdbcType="NUMERIC" property="countb60" />
+    <result column="COUNTT60" jdbcType="NUMERIC" property="countt60" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_RECVSTAT_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and COUNTDAY = #{countday,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=VARCHAR}
+      and FRGRD = #{frgrd,jdbcType=VARCHAR}
+      and `OPERATION` = #{operation,jdbcType=VARCHAR}
+      and INFTYPE = #{inftype,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRecvstatE">
+    insert into dbo.ST_RECVSTAT_E (INSTCD, COUNTDAY, STTDRCD, 
+      FRGRD, `OPERATION`, INFTYPE, 
+      STCDNUM, INFNUM, COUNTL30, 
+      COUNTB60, COUNTT60, MODITIME
+      )
+    values (#{instcd,jdbcType=VARCHAR}, #{countday,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=VARCHAR}, 
+      #{frgrd,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, #{inftype,jdbcType=VARCHAR}, 
+      #{stcdnum,jdbcType=NUMERIC}, #{infnum,jdbcType=NUMERIC}, #{countl30,jdbcType=NUMERIC}, 
+      #{countb60,jdbcType=NUMERIC}, #{countt60,jdbcType=NUMERIC}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRecvstatE">
+    update dbo.ST_RECVSTAT_E
+    set STCDNUM = #{stcdnum,jdbcType=NUMERIC},
+      INFNUM = #{infnum,jdbcType=NUMERIC},
+      COUNTL30 = #{countl30,jdbcType=NUMERIC},
+      COUNTB60 = #{countb60,jdbcType=NUMERIC},
+      COUNTT60 = #{countt60,jdbcType=NUMERIC},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and COUNTDAY = #{countday,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=VARCHAR}
+      and FRGRD = #{frgrd,jdbcType=VARCHAR}
+      and `OPERATION` = #{operation,jdbcType=VARCHAR}
+      and INFTYPE = #{inftype,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,INSTCD, COUNTDAY, STTDRCD, FRGRD, `OPERATION`, INFTYPE, 
+    STCDNUM, INFNUM, COUNTL30, COUNTB60, COUNTT60, MODITIME
+    from dbo.ST_RECVSTAT_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and COUNTDAY = #{countday,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=VARCHAR}
+      and FRGRD = #{frgrd,jdbcType=VARCHAR}
+      and `OPERATION` = #{operation,jdbcType=VARCHAR}
+      and INFTYPE = #{inftype,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INSTCD, COUNTDAY, STTDRCD, FRGRD, `OPERATION`, INFTYPE, STCDNUM, INFNUM, COUNTL30, 
+    COUNTB60, COUNTT60, MODITIME
+    from dbo.ST_RECVSTAT_E
+  </select>
+</mapper>

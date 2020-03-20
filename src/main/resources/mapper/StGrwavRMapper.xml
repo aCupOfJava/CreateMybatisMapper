@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StGrwavRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StGrwavR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="AVGWBD" jdbcType="NUMERIC" property="avgwbd" />
+    <result column="AVSPQ" jdbcType="NUMERIC" property="avspq" />
+    <result column="AVGWTMP" jdbcType="NUMERIC" property="avgwtmp" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_GRWAV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StGrwavR">
+    insert into dbo.ST_GRWAV_R (STCD, IDTM, STTDRCD, 
+      AVGWBD, AVSPQ, AVGWTMP
+      )
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{avgwbd,jdbcType=NUMERIC}, #{avspq,jdbcType=NUMERIC}, #{avgwtmp,jdbcType=NUMERIC}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StGrwavR">
+    update dbo.ST_GRWAV_R
+    set AVGWBD = #{avgwbd,jdbcType=NUMERIC},
+      AVSPQ = #{avspq,jdbcType=NUMERIC},
+      AVGWTMP = #{avgwtmp,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, AVGWBD, AVSPQ, AVGWTMP
+    from dbo.ST_GRWAV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, AVGWBD, AVSPQ, AVGWTMP
+    from dbo.ST_GRWAV_R
+  </select>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StSedRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StSedR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="S" jdbcType="NUMERIC" property="s" />
+    <result column="SCHRCD" jdbcType="CHAR" property="schrcd" />
+    <result column="SMT" jdbcType="CHAR" property="smt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_SED_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StSedR">
+    insert into dbo.ST_SED_R (STCD, TM, S, SCHRCD, 
+      SMT)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{s,jdbcType=NUMERIC}, #{schrcd,jdbcType=CHAR}, 
+      #{smt,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StSedR">
+    update dbo.ST_SED_R
+    set S = #{s,jdbcType=NUMERIC},
+      SCHRCD = #{schrcd,jdbcType=CHAR},
+      SMT = #{smt,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, S, SCHRCD, SMT
+    from dbo.ST_SED_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, S, SCHRCD, SMT
+    from dbo.ST_SED_R
+  </select>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StWdwvRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StWdwvR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="WNDV" jdbcType="NUMERIC" property="wndv" />
+    <result column="WNDPWR" jdbcType="NUMERIC" property="wndpwr" />
+    <result column="WNDDIR" jdbcType="CHAR" property="wnddir" />
+    <result column="WVHGT" jdbcType="NUMERIC" property="wvhgt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_WDWV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StWdwvR">
+    insert into dbo.ST_WDWV_R (STCD, TM, WNDV, 
+      WNDPWR, WNDDIR, WVHGT)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{wndv,jdbcType=NUMERIC}, 
+      #{wndpwr,jdbcType=NUMERIC}, #{wnddir,jdbcType=CHAR}, #{wvhgt,jdbcType=NUMERIC})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StWdwvR">
+    update dbo.ST_WDWV_R
+    set WNDV = #{wndv,jdbcType=NUMERIC},
+      WNDPWR = #{wndpwr,jdbcType=NUMERIC},
+      WNDDIR = #{wnddir,jdbcType=CHAR},
+      WVHGT = #{wvhgt,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, WNDV, WNDPWR, WNDDIR, WVHGT
+    from dbo.ST_WDWV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, WNDV, WNDPWR, WNDDIR, WVHGT
+    from dbo.ST_WDWV_R
+  </select>
+</mapper>

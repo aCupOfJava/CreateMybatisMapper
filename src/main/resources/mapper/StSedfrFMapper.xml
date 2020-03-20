@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StSedfrFMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StSedfrF">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="UNITNAME" jdbcType="CHAR" property="unitname" />
+    <id column="PLCD" jdbcType="CHAR" property="plcd" />
+    <id column="FYMDH" jdbcType="TIMESTAMP" property="fymdh" />
+    <id column="IYMDH" jdbcType="TIMESTAMP" property="iymdh" />
+    <id column="YMDH" jdbcType="TIMESTAMP" property="ymdh" />
+    <result column="FS" jdbcType="NUMERIC" property="fs" />
+    <result column="SCHRCD" jdbcType="CHAR" property="schrcd" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_SEDFR_F
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+      and YMDH = #{ymdh,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StSedfrF">
+    insert into dbo.ST_SEDFR_F (STCD, UNITNAME, PLCD, 
+      FYMDH, IYMDH, YMDH, 
+      FS, SCHRCD)
+    values (#{stcd,jdbcType=CHAR}, #{unitname,jdbcType=CHAR}, #{plcd,jdbcType=CHAR}, 
+      #{fymdh,jdbcType=TIMESTAMP}, #{iymdh,jdbcType=TIMESTAMP}, #{ymdh,jdbcType=TIMESTAMP}, 
+      #{fs,jdbcType=NUMERIC}, #{schrcd,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StSedfrF">
+    update dbo.ST_SEDFR_F
+    set FS = #{fs,jdbcType=NUMERIC},
+      SCHRCD = #{schrcd,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+      and YMDH = #{ymdh,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, UNITNAME, PLCD, FYMDH, IYMDH, YMDH, FS, SCHRCD
+    from dbo.ST_SEDFR_F
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+      and YMDH = #{ymdh,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, UNITNAME, PLCD, FYMDH, IYMDH, YMDH, FS, SCHRCD
+    from dbo.ST_SEDFR_F
+  </select>
+</mapper>

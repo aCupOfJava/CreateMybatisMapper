@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StTideevsRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StTideevsR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="HTTDZ" jdbcType="NUMERIC" property="httdz" />
+    <result column="LTTDZ" jdbcType="NUMERIC" property="lttdz" />
+    <result column="MXWNDV" jdbcType="NUMERIC" property="mxwndv" />
+    <result column="HTTDZTM" jdbcType="TIMESTAMP" property="httdztm" />
+    <result column="LTTDZTM" jdbcType="TIMESTAMP" property="lttdztm" />
+    <result column="MXWNDVTM" jdbcType="TIMESTAMP" property="mxwndvtm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_TIDEEVS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StTideevsR">
+    insert into dbo.ST_TIDEEVS_R (STCD, IDTM, STTDRCD, 
+      HTTDZ, LTTDZ, MXWNDV, 
+      HTTDZTM, LTTDZTM, MXWNDVTM
+      )
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{httdz,jdbcType=NUMERIC}, #{lttdz,jdbcType=NUMERIC}, #{mxwndv,jdbcType=NUMERIC}, 
+      #{httdztm,jdbcType=TIMESTAMP}, #{lttdztm,jdbcType=TIMESTAMP}, #{mxwndvtm,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StTideevsR">
+    update dbo.ST_TIDEEVS_R
+    set HTTDZ = #{httdz,jdbcType=NUMERIC},
+      LTTDZ = #{lttdz,jdbcType=NUMERIC},
+      MXWNDV = #{mxwndv,jdbcType=NUMERIC},
+      HTTDZTM = #{httdztm,jdbcType=TIMESTAMP},
+      LTTDZTM = #{lttdztm,jdbcType=TIMESTAMP},
+      MXWNDVTM = #{mxwndvtm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, HTTDZ, LTTDZ, MXWNDV, HTTDZTM, LTTDZTM, 
+    MXWNDVTM
+    from dbo.ST_TIDEEVS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, HTTDZ, LTTDZ, MXWNDV, HTTDZTM, LTTDZTM, MXWNDVTM
+    from dbo.ST_TIDEEVS_R
+  </select>
+</mapper>

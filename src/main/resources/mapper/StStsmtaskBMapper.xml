@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StStsmtaskBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StStsmtaskB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <result column="DFRTMS" jdbcType="NUMERIC" property="dfrtms" />
+    <result column="PFL" jdbcType="CHAR" property="pfl" />
+    <result column="EFL" jdbcType="CHAR" property="efl" />
+    <result column="ZFL" jdbcType="CHAR" property="zfl" />
+    <result column="QFL" jdbcType="CHAR" property="qfl" />
+    <result column="WFL" jdbcType="CHAR" property="wfl" />
+    <result column="INQFL" jdbcType="CHAR" property="inqfl" />
+    <result column="DAMFL" jdbcType="CHAR" property="damfl" />
+    <result column="OTQFL" jdbcType="CHAR" property="otqfl" />
+    <result column="WDWVFL" jdbcType="CHAR" property="wdwvfl" />
+    <result column="SEDFL" jdbcType="CHAR" property="sedfl" />
+    <result column="ICEFL" jdbcType="CHAR" property="icefl" />
+    <result column="PPFL" jdbcType="CHAR" property="ppfl" />
+    <result column="DRNFL" jdbcType="CHAR" property="drnfl" />
+    <result column="SOILFL" jdbcType="CHAR" property="soilfl" />
+    <result column="GRWFL" jdbcType="CHAR" property="grwfl" />
+    <result column="STATFL" jdbcType="CHAR" property="statfl" />
+    <result column="OFFICER" jdbcType="CHAR" property="officer" />
+    <result column="MPHONE" jdbcType="CHAR" property="mphone" />
+    <result column="SPHONE" jdbcType="CHAR" property="sphone" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.ST_STSMTASK_B
+    where STCD = #{stcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StStsmtaskB">
+    insert into dbo.ST_STSMTASK_B (STCD, DFRTMS, PFL, 
+      EFL, ZFL, QFL, WFL, 
+      INQFL, DAMFL, OTQFL, WDWVFL, 
+      SEDFL, ICEFL, PPFL, DRNFL, 
+      SOILFL, GRWFL, STATFL, OFFICER, 
+      MPHONE, SPHONE, MODITIME
+      )
+    values (#{stcd,jdbcType=CHAR}, #{dfrtms,jdbcType=NUMERIC}, #{pfl,jdbcType=CHAR}, 
+      #{efl,jdbcType=CHAR}, #{zfl,jdbcType=CHAR}, #{qfl,jdbcType=CHAR}, #{wfl,jdbcType=CHAR}, 
+      #{inqfl,jdbcType=CHAR}, #{damfl,jdbcType=CHAR}, #{otqfl,jdbcType=CHAR}, #{wdwvfl,jdbcType=CHAR}, 
+      #{sedfl,jdbcType=CHAR}, #{icefl,jdbcType=CHAR}, #{ppfl,jdbcType=CHAR}, #{drnfl,jdbcType=CHAR}, 
+      #{soilfl,jdbcType=CHAR}, #{grwfl,jdbcType=CHAR}, #{statfl,jdbcType=CHAR}, #{officer,jdbcType=CHAR}, 
+      #{mphone,jdbcType=CHAR}, #{sphone,jdbcType=CHAR}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StStsmtaskB">
+    update dbo.ST_STSMTASK_B
+    set DFRTMS = #{dfrtms,jdbcType=NUMERIC},
+      PFL = #{pfl,jdbcType=CHAR},
+      EFL = #{efl,jdbcType=CHAR},
+      ZFL = #{zfl,jdbcType=CHAR},
+      QFL = #{qfl,jdbcType=CHAR},
+      WFL = #{wfl,jdbcType=CHAR},
+      INQFL = #{inqfl,jdbcType=CHAR},
+      DAMFL = #{damfl,jdbcType=CHAR},
+      OTQFL = #{otqfl,jdbcType=CHAR},
+      WDWVFL = #{wdwvfl,jdbcType=CHAR},
+      SEDFL = #{sedfl,jdbcType=CHAR},
+      ICEFL = #{icefl,jdbcType=CHAR},
+      PPFL = #{ppfl,jdbcType=CHAR},
+      DRNFL = #{drnfl,jdbcType=CHAR},
+      SOILFL = #{soilfl,jdbcType=CHAR},
+      GRWFL = #{grwfl,jdbcType=CHAR},
+      STATFL = #{statfl,jdbcType=CHAR},
+      OFFICER = #{officer,jdbcType=CHAR},
+      MPHONE = #{mphone,jdbcType=CHAR},
+      SPHONE = #{sphone,jdbcType=CHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, DFRTMS, PFL, EFL, ZFL, QFL, WFL, INQFL, DAMFL, OTQFL, 
+    WDWVFL, SEDFL, ICEFL, PPFL, DRNFL, SOILFL, GRWFL, STATFL, OFFICER, MPHONE, SPHONE, 
+    MODITIME
+    from dbo.ST_STSMTASK_B
+    where STCD = #{stcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, DFRTMS, PFL, EFL, ZFL, QFL, WFL, INQFL, DAMFL, OTQFL, WDWVFL, SEDFL, 
+    ICEFL, PPFL, DRNFL, SOILFL, GRWFL, STATFL, OFFICER, MPHONE, SPHONE, MODITIME
+    from dbo.ST_STSMTASK_B
+  </select>
+</mapper>

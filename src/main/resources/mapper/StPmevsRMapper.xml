@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StPmevsRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StPmevsR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="PPUPHTZ" jdbcType="NUMERIC" property="ppuphtz" />
+    <result column="PPUPLTZ" jdbcType="NUMERIC" property="ppupltz" />
+    <result column="PPDWHTZ" jdbcType="NUMERIC" property="ppdwhtz" />
+    <result column="PPDWLTZ" jdbcType="NUMERIC" property="ppdwltz" />
+    <result column="MXPPQ" jdbcType="NUMERIC" property="mxppq" />
+    <result column="MNPPQ" jdbcType="NUMERIC" property="mnppq" />
+    <result column="MXDNQ" jdbcType="NUMERIC" property="mxdnq" />
+    <result column="MNDNQ" jdbcType="NUMERIC" property="mndnq" />
+    <result column="PPUPHTZTM" jdbcType="TIMESTAMP" property="ppuphtztm" />
+    <result column="PPUPLTZTM" jdbcType="TIMESTAMP" property="ppupltztm" />
+    <result column="PPDWHTZTM" jdbcType="TIMESTAMP" property="ppdwhtztm" />
+    <result column="PPDWLTZTM" jdbcType="TIMESTAMP" property="ppdwltztm" />
+    <result column="MXPPQTM" jdbcType="TIMESTAMP" property="mxppqtm" />
+    <result column="MNPPQTM" jdbcType="TIMESTAMP" property="mnppqtm" />
+    <result column="MXDNQTM" jdbcType="TIMESTAMP" property="mxdnqtm" />
+    <result column="MNDNQTM" jdbcType="TIMESTAMP" property="mndnqtm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_PMEVS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StPmevsR">
+    insert into dbo.ST_PMEVS_R (STCD, IDTM, STTDRCD, 
+      PPUPHTZ, PPUPLTZ, PPDWHTZ, 
+      PPDWLTZ, MXPPQ, MNPPQ, 
+      MXDNQ, MNDNQ, PPUPHTZTM, 
+      PPUPLTZTM, PPDWHTZTM, PPDWLTZTM, 
+      MXPPQTM, MNPPQTM, MXDNQTM, 
+      MNDNQTM)
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{ppuphtz,jdbcType=NUMERIC}, #{ppupltz,jdbcType=NUMERIC}, #{ppdwhtz,jdbcType=NUMERIC}, 
+      #{ppdwltz,jdbcType=NUMERIC}, #{mxppq,jdbcType=NUMERIC}, #{mnppq,jdbcType=NUMERIC}, 
+      #{mxdnq,jdbcType=NUMERIC}, #{mndnq,jdbcType=NUMERIC}, #{ppuphtztm,jdbcType=TIMESTAMP}, 
+      #{ppupltztm,jdbcType=TIMESTAMP}, #{ppdwhtztm,jdbcType=TIMESTAMP}, #{ppdwltztm,jdbcType=TIMESTAMP}, 
+      #{mxppqtm,jdbcType=TIMESTAMP}, #{mnppqtm,jdbcType=TIMESTAMP}, #{mxdnqtm,jdbcType=TIMESTAMP}, 
+      #{mndnqtm,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StPmevsR">
+    update dbo.ST_PMEVS_R
+    set PPUPHTZ = #{ppuphtz,jdbcType=NUMERIC},
+      PPUPLTZ = #{ppupltz,jdbcType=NUMERIC},
+      PPDWHTZ = #{ppdwhtz,jdbcType=NUMERIC},
+      PPDWLTZ = #{ppdwltz,jdbcType=NUMERIC},
+      MXPPQ = #{mxppq,jdbcType=NUMERIC},
+      MNPPQ = #{mnppq,jdbcType=NUMERIC},
+      MXDNQ = #{mxdnq,jdbcType=NUMERIC},
+      MNDNQ = #{mndnq,jdbcType=NUMERIC},
+      PPUPHTZTM = #{ppuphtztm,jdbcType=TIMESTAMP},
+      PPUPLTZTM = #{ppupltztm,jdbcType=TIMESTAMP},
+      PPDWHTZTM = #{ppdwhtztm,jdbcType=TIMESTAMP},
+      PPDWLTZTM = #{ppdwltztm,jdbcType=TIMESTAMP},
+      MXPPQTM = #{mxppqtm,jdbcType=TIMESTAMP},
+      MNPPQTM = #{mnppqtm,jdbcType=TIMESTAMP},
+      MXDNQTM = #{mxdnqtm,jdbcType=TIMESTAMP},
+      MNDNQTM = #{mndnqtm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, PPUPHTZ, PPUPLTZ, PPDWHTZ, PPDWLTZ, 
+    MXPPQ, MNPPQ, MXDNQ, MNDNQ, PPUPHTZTM, PPUPLTZTM, PPDWHTZTM, PPDWLTZTM, MXPPQTM, 
+    MNPPQTM, MXDNQTM, MNDNQTM
+    from dbo.ST_PMEVS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, PPUPHTZ, PPUPLTZ, PPDWHTZ, PPDWLTZ, MXPPQ, MNPPQ, MXDNQ, 
+    MNDNQ, PPUPHTZTM, PPUPLTZTM, PPDWHTZTM, PPDWLTZTM, MXPPQTM, MNPPQTM, MXDNQTM, MNDNQTM
+    from dbo.ST_PMEVS_R
+  </select>
+</mapper>

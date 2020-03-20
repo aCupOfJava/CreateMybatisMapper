@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.WqWbhpDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.WqWbhpD">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="spt" />
+    <id column="PRPNM" jdbcType="CHAR" property="prpnm" />
+    <id column="LYNM" jdbcType="CHAR" property="lynm" />
+    <id column="WBTP" jdbcType="CHAR" property="wbtp" />
+    <result column="BCTC" jdbcType="NUMERIC" property="bctc" />
+    <result column="TCG" jdbcType="NUMERIC" property="tcg" />
+    <result column="FCG" jdbcType="NUMERIC" property="fcg" />
+    <result column="FS" jdbcType="NUMERIC" property="fs" />
+    <result column="NT" jdbcType="CHAR" property="nt" />
+    <result column="SPE_REG_DATA" jdbcType="CHAR" property="speRegData" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="testComTm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.WQ_WBHP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.WqWbhpD">
+    insert into dbo.WQ_WBHP_D (STCD, SPT, PRPNM, 
+      LYNM, WBTP, BCTC, TCG, 
+      FCG, FS, NT, SPE_REG_DATA, 
+      TS, TEST_COM_TM)
+    values (#{stcd,jdbcType=CHAR}, #{spt,jdbcType=TIMESTAMP}, #{prpnm,jdbcType=CHAR}, 
+      #{lynm,jdbcType=CHAR}, #{wbtp,jdbcType=CHAR}, #{bctc,jdbcType=NUMERIC}, #{tcg,jdbcType=NUMERIC}, 
+      #{fcg,jdbcType=NUMERIC}, #{fs,jdbcType=NUMERIC}, #{nt,jdbcType=CHAR}, #{speRegData,jdbcType=CHAR}, 
+      #{ts,jdbcType=TIMESTAMP}, #{testComTm,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.WqWbhpD">
+    update dbo.WQ_WBHP_D
+    set BCTC = #{bctc,jdbcType=NUMERIC},
+      TCG = #{tcg,jdbcType=NUMERIC},
+      FCG = #{fcg,jdbcType=NUMERIC},
+      FS = #{fs,jdbcType=NUMERIC},
+      NT = #{nt,jdbcType=CHAR},
+      SPE_REG_DATA = #{speRegData,jdbcType=CHAR},
+      TS = #{ts,jdbcType=TIMESTAMP},
+      TEST_COM_TM = #{testComTm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, SPT, PRPNM, LYNM, WBTP, BCTC, TCG, FCG, FS, NT, SPE_REG_DATA, 
+    TS, TEST_COM_TM
+    from dbo.WQ_WBHP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, SPT, PRPNM, LYNM, WBTP, BCTC, TCG, FCG, FS, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_WBHP_D
+  </select>
+</mapper>

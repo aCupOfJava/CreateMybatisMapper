@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StEnnmcdDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StEnnmcdD">
+    <id column="ENNMCD" jdbcType="CHAR" property="ennmcd" />
+    <result column="BSNM" jdbcType="VARCHAR" property="bsnm" />
+    <result column="COMMENTS" jdbcType="VARCHAR" property="comments" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.ST_ENNMCD_D
+    where ENNMCD = #{ennmcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StEnnmcdD">
+    insert into dbo.ST_ENNMCD_D (ENNMCD, BSNM, COMMENTS, 
+      MODITIME)
+    values (#{ennmcd,jdbcType=CHAR}, #{bsnm,jdbcType=VARCHAR}, #{comments,jdbcType=VARCHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StEnnmcdD">
+    update dbo.ST_ENNMCD_D
+    set BSNM = #{bsnm,jdbcType=VARCHAR},
+      COMMENTS = #{comments,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where ENNMCD = #{ennmcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 'true' as QUERYID,ENNMCD, BSNM, COMMENTS, MODITIME
+    from dbo.ST_ENNMCD_D
+    where ENNMCD = #{ennmcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ENNMCD, BSNM, COMMENTS, MODITIME
+    from dbo.ST_ENNMCD_D
+  </select>
+</mapper>

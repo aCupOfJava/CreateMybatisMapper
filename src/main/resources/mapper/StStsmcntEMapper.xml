@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StStsmcntEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StStsmcntE">
+    <id column="INSTCD" jdbcType="VARCHAR" property="instcd" />
+    <id column="STCD" jdbcType="VARCHAR" property="stcd" />
+    <id column="COUNTDAY" jdbcType="TIMESTAMP" property="countday" />
+    <id column="INFSTATUS" jdbcType="VARCHAR" property="infstatus" />
+    <id column="INFTYPE" jdbcType="VARCHAR" property="inftype" />
+    <result column="FRGRD" jdbcType="VARCHAR" property="frgrd" />
+    <result column="ICNT" jdbcType="NUMERIC" property="icnt" />
+    <result column="UCNT" jdbcType="NUMERIC" property="ucnt" />
+    <result column="DCNT" jdbcType="NUMERIC" property="dcnt" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_STSMCNT_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and STCD = #{stcd,jdbcType=VARCHAR}
+      and COUNTDAY = #{countday,jdbcType=TIMESTAMP}
+      and INFSTATUS = #{infstatus,jdbcType=VARCHAR}
+      and INFTYPE = #{inftype,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StStsmcntE">
+    insert into dbo.ST_STSMCNT_E (INSTCD, STCD, COUNTDAY, 
+      INFSTATUS, INFTYPE, FRGRD, 
+      ICNT, UCNT, DCNT, MODITIME
+      )
+    values (#{instcd,jdbcType=VARCHAR}, #{stcd,jdbcType=VARCHAR}, #{countday,jdbcType=TIMESTAMP}, 
+      #{infstatus,jdbcType=VARCHAR}, #{inftype,jdbcType=VARCHAR}, #{frgrd,jdbcType=VARCHAR}, 
+      #{icnt,jdbcType=NUMERIC}, #{ucnt,jdbcType=NUMERIC}, #{dcnt,jdbcType=NUMERIC}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StStsmcntE">
+    update dbo.ST_STSMCNT_E
+    set FRGRD = #{frgrd,jdbcType=VARCHAR},
+      ICNT = #{icnt,jdbcType=NUMERIC},
+      UCNT = #{ucnt,jdbcType=NUMERIC},
+      DCNT = #{dcnt,jdbcType=NUMERIC},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and STCD = #{stcd,jdbcType=VARCHAR}
+      and COUNTDAY = #{countday,jdbcType=TIMESTAMP}
+      and INFSTATUS = #{infstatus,jdbcType=VARCHAR}
+      and INFTYPE = #{inftype,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,INSTCD, STCD, COUNTDAY, INFSTATUS, INFTYPE, FRGRD, ICNT, 
+    UCNT, DCNT, MODITIME
+    from dbo.ST_STSMCNT_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and STCD = #{stcd,jdbcType=VARCHAR}
+      and COUNTDAY = #{countday,jdbcType=TIMESTAMP}
+      and INFSTATUS = #{infstatus,jdbcType=VARCHAR}
+      and INFTYPE = #{inftype,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INSTCD, STCD, COUNTDAY, INFSTATUS, INFTYPE, FRGRD, ICNT, UCNT, DCNT, MODITIME
+    from dbo.ST_STSMCNT_E
+  </select>
+</mapper>

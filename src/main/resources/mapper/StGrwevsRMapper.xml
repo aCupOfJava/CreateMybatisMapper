@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StGrwevsRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StGrwevsR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="MXBD" jdbcType="NUMERIC" property="mxbd" />
+    <result column="MNBD" jdbcType="NUMERIC" property="mnbd" />
+    <result column="MXSPQ" jdbcType="NUMERIC" property="mxspq" />
+    <result column="MNSPQ" jdbcType="NUMERIC" property="mnspq" />
+    <result column="MXGWTMP" jdbcType="NUMERIC" property="mxgwtmp" />
+    <result column="MNGWTMP" jdbcType="NUMERIC" property="mngwtmp" />
+    <result column="MXBDTM" jdbcType="TIMESTAMP" property="mxbdtm" />
+    <result column="MNBDTM" jdbcType="TIMESTAMP" property="mnbdtm" />
+    <result column="MXSPQTM" jdbcType="TIMESTAMP" property="mxspqtm" />
+    <result column="MNSPQTM" jdbcType="TIMESTAMP" property="mnspqtm" />
+    <result column="MXGWTMPTM" jdbcType="TIMESTAMP" property="mxgwtmptm" />
+    <result column="MNGWTMPTM" jdbcType="TIMESTAMP" property="mngwtmptm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_GRWEVS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StGrwevsR">
+    insert into dbo.ST_GRWEVS_R (STCD, IDTM, STTDRCD, 
+      MXBD, MNBD, MXSPQ, 
+      MNSPQ, MXGWTMP, MNGWTMP, 
+      MXBDTM, MNBDTM, MXSPQTM, 
+      MNSPQTM, MXGWTMPTM, MNGWTMPTM
+      )
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{mxbd,jdbcType=NUMERIC}, #{mnbd,jdbcType=NUMERIC}, #{mxspq,jdbcType=NUMERIC}, 
+      #{mnspq,jdbcType=NUMERIC}, #{mxgwtmp,jdbcType=NUMERIC}, #{mngwtmp,jdbcType=NUMERIC}, 
+      #{mxbdtm,jdbcType=TIMESTAMP}, #{mnbdtm,jdbcType=TIMESTAMP}, #{mxspqtm,jdbcType=TIMESTAMP}, 
+      #{mnspqtm,jdbcType=TIMESTAMP}, #{mxgwtmptm,jdbcType=TIMESTAMP}, #{mngwtmptm,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StGrwevsR">
+    update dbo.ST_GRWEVS_R
+    set MXBD = #{mxbd,jdbcType=NUMERIC},
+      MNBD = #{mnbd,jdbcType=NUMERIC},
+      MXSPQ = #{mxspq,jdbcType=NUMERIC},
+      MNSPQ = #{mnspq,jdbcType=NUMERIC},
+      MXGWTMP = #{mxgwtmp,jdbcType=NUMERIC},
+      MNGWTMP = #{mngwtmp,jdbcType=NUMERIC},
+      MXBDTM = #{mxbdtm,jdbcType=TIMESTAMP},
+      MNBDTM = #{mnbdtm,jdbcType=TIMESTAMP},
+      MXSPQTM = #{mxspqtm,jdbcType=TIMESTAMP},
+      MNSPQTM = #{mnspqtm,jdbcType=TIMESTAMP},
+      MXGWTMPTM = #{mxgwtmptm,jdbcType=TIMESTAMP},
+      MNGWTMPTM = #{mngwtmptm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, MXBD, MNBD, MXSPQ, MNSPQ, MXGWTMP, 
+    MNGWTMP, MXBDTM, MNBDTM, MXSPQTM, MNSPQTM, MXGWTMPTM, MNGWTMPTM
+    from dbo.ST_GRWEVS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, MXBD, MNBD, MXSPQ, MNSPQ, MXGWTMP, MNGWTMP, MXBDTM, MNBDTM, 
+    MXSPQTM, MNSPQTM, MXGWTMPTM, MNGWTMPTM
+    from dbo.ST_GRWEVS_R
+  </select>
+</mapper>

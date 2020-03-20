@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StStbprpBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StStbprpB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <result column="STNM" jdbcType="CHAR" property="stnm" />
+    <result column="RVNM" jdbcType="CHAR" property="rvnm" />
+    <result column="HNNM" jdbcType="CHAR" property="hnnm" />
+    <result column="BSNM" jdbcType="CHAR" property="bsnm" />
+    <result column="LGTD" jdbcType="NUMERIC" property="lgtd" />
+    <result column="LTTD" jdbcType="NUMERIC" property="lttd" />
+    <result column="STLC" jdbcType="CHAR" property="stlc" />
+    <result column="ADDVCD" jdbcType="CHAR" property="addvcd" />
+    <result column="DTMNM" jdbcType="CHAR" property="dtmnm" />
+    <result column="DTMEL" jdbcType="NUMERIC" property="dtmel" />
+    <result column="DTPR" jdbcType="NUMERIC" property="dtpr" />
+    <result column="STTP" jdbcType="CHAR" property="sttp" />
+    <result column="FRGRD" jdbcType="CHAR" property="frgrd" />
+    <result column="ESSTYM" jdbcType="CHAR" property="esstym" />
+    <result column="BGFRYM" jdbcType="CHAR" property="bgfrym" />
+    <result column="ATCUNIT" jdbcType="CHAR" property="atcunit" />
+    <result column="ADMAUTH" jdbcType="CHAR" property="admauth" />
+    <result column="LOCALITY" jdbcType="CHAR" property="locality" />
+    <result column="STBK" jdbcType="CHAR" property="stbk" />
+    <result column="STAZT" jdbcType="NUMERIC" property="stazt" />
+    <result column="DSTRVM" jdbcType="NUMERIC" property="dstrvm" />
+    <result column="DRNA" jdbcType="NUMERIC" property="drna" />
+    <result column="PHCD" jdbcType="CHAR" property="phcd" />
+    <result column="USFL" jdbcType="CHAR" property="usfl" />
+    <result column="COMMENTS" jdbcType="VARCHAR" property="comments" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.ST_STBPRP_B
+    where STCD = #{stcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StStbprpB">
+    insert into dbo.ST_STBPRP_B (STCD, STNM, RVNM, HNNM, 
+      BSNM, LGTD, LTTD, STLC, 
+      ADDVCD, DTMNM, DTMEL, DTPR, 
+      STTP, FRGRD, ESSTYM, BGFRYM, 
+      ATCUNIT, ADMAUTH, LOCALITY, 
+      STBK, STAZT, DSTRVM, DRNA, 
+      PHCD, USFL, COMMENTS, MODITIME
+      )
+    values (#{stcd,jdbcType=CHAR}, #{stnm,jdbcType=CHAR}, #{rvnm,jdbcType=CHAR}, #{hnnm,jdbcType=CHAR}, 
+      #{bsnm,jdbcType=CHAR}, #{lgtd,jdbcType=NUMERIC}, #{lttd,jdbcType=NUMERIC}, #{stlc,jdbcType=CHAR}, 
+      #{addvcd,jdbcType=CHAR}, #{dtmnm,jdbcType=CHAR}, #{dtmel,jdbcType=NUMERIC}, #{dtpr,jdbcType=NUMERIC}, 
+      #{sttp,jdbcType=CHAR}, #{frgrd,jdbcType=CHAR}, #{esstym,jdbcType=CHAR}, #{bgfrym,jdbcType=CHAR}, 
+      #{atcunit,jdbcType=CHAR}, #{admauth,jdbcType=CHAR}, #{locality,jdbcType=CHAR}, 
+      #{stbk,jdbcType=CHAR}, #{stazt,jdbcType=NUMERIC}, #{dstrvm,jdbcType=NUMERIC}, #{drna,jdbcType=NUMERIC}, 
+      #{phcd,jdbcType=CHAR}, #{usfl,jdbcType=CHAR}, #{comments,jdbcType=VARCHAR}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StStbprpB">
+    update dbo.ST_STBPRP_B
+    set STNM = #{stnm,jdbcType=CHAR},
+      RVNM = #{rvnm,jdbcType=CHAR},
+      HNNM = #{hnnm,jdbcType=CHAR},
+      BSNM = #{bsnm,jdbcType=CHAR},
+      LGTD = #{lgtd,jdbcType=NUMERIC},
+      LTTD = #{lttd,jdbcType=NUMERIC},
+      STLC = #{stlc,jdbcType=CHAR},
+      ADDVCD = #{addvcd,jdbcType=CHAR},
+      DTMNM = #{dtmnm,jdbcType=CHAR},
+      DTMEL = #{dtmel,jdbcType=NUMERIC},
+      DTPR = #{dtpr,jdbcType=NUMERIC},
+      STTP = #{sttp,jdbcType=CHAR},
+      FRGRD = #{frgrd,jdbcType=CHAR},
+      ESSTYM = #{esstym,jdbcType=CHAR},
+      BGFRYM = #{bgfrym,jdbcType=CHAR},
+      ATCUNIT = #{atcunit,jdbcType=CHAR},
+      ADMAUTH = #{admauth,jdbcType=CHAR},
+      LOCALITY = #{locality,jdbcType=CHAR},
+      STBK = #{stbk,jdbcType=CHAR},
+      STAZT = #{stazt,jdbcType=NUMERIC},
+      DSTRVM = #{dstrvm,jdbcType=NUMERIC},
+      DRNA = #{drna,jdbcType=NUMERIC},
+      PHCD = #{phcd,jdbcType=CHAR},
+      USFL = #{usfl,jdbcType=CHAR},
+      COMMENTS = #{comments,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, STNM, RVNM, HNNM, BSNM, LGTD, LTTD, STLC, ADDVCD, 
+    DTMNM, DTMEL, DTPR, STTP, FRGRD, ESSTYM, BGFRYM, ATCUNIT, ADMAUTH, LOCALITY, STBK, 
+    STAZT, DSTRVM, DRNA, PHCD, USFL, COMMENTS, MODITIME
+    from dbo.ST_STBPRP_B
+    where STCD = #{stcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, STNM, RVNM, HNNM, BSNM, LGTD, LTTD, STLC, ADDVCD, DTMNM, DTMEL, DTPR, 
+    STTP, FRGRD, ESSTYM, BGFRYM, ATCUNIT, ADMAUTH, LOCALITY, STBK, STAZT, DSTRVM, DRNA, 
+    PHCD, USFL, COMMENTS, MODITIME
+    from dbo.ST_STBPRP_B
+  </select>
+</mapper>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StInstcdEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StInstcdE">
+    <id column="INSTCD" jdbcType="VARCHAR" property="instcd" />
+    <result column="INSTNM" jdbcType="VARCHAR" property="instnm" />
+    <result column="EXCTYPE" jdbcType="VARCHAR" property="exctype" />
+    <result column="EXCIP" jdbcType="VARCHAR" property="excip" />
+    <result column="EXCPORT" jdbcType="NUMERIC" property="excport" />
+    <result column="EXCSRV" jdbcType="VARCHAR" property="excsrv" />
+    <result column="WEBURL" jdbcType="VARCHAR" property="weburl" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="TRFL" jdbcType="CHAR" property="trfl" />
+    <result column="ISSTARTS" jdbcType="VARCHAR" property="isstarts" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.ST_INSTCD_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StInstcdE">
+    insert into dbo.ST_INSTCD_E (INSTCD, INSTNM, EXCTYPE, 
+      EXCIP, EXCPORT, EXCSRV, 
+      WEBURL, `PASSWORD`, TRFL, 
+      ISSTARTS, MODITIME)
+    values (#{instcd,jdbcType=VARCHAR}, #{instnm,jdbcType=VARCHAR}, #{exctype,jdbcType=VARCHAR}, 
+      #{excip,jdbcType=VARCHAR}, #{excport,jdbcType=NUMERIC}, #{excsrv,jdbcType=VARCHAR}, 
+      #{weburl,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{trfl,jdbcType=CHAR}, 
+      #{isstarts,jdbcType=VARCHAR}, #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StInstcdE">
+    update dbo.ST_INSTCD_E
+    set INSTNM = #{instnm,jdbcType=VARCHAR},
+      EXCTYPE = #{exctype,jdbcType=VARCHAR},
+      EXCIP = #{excip,jdbcType=VARCHAR},
+      EXCPORT = #{excport,jdbcType=NUMERIC},
+      EXCSRV = #{excsrv,jdbcType=VARCHAR},
+      WEBURL = #{weburl,jdbcType=VARCHAR},
+      `PASSWORD` = #{password,jdbcType=VARCHAR},
+      TRFL = #{trfl,jdbcType=CHAR},
+      ISSTARTS = #{isstarts,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 'true' as QUERYID,INSTCD, INSTNM, EXCTYPE, EXCIP, EXCPORT, EXCSRV, WEBURL, 
+    `PASSWORD`, TRFL, ISSTARTS, MODITIME
+    from dbo.ST_INSTCD_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INSTCD, INSTNM, EXCTYPE, EXCIP, EXCPORT, EXCSRV, WEBURL, `PASSWORD`, TRFL, 
+    ISSTARTS, MODITIME
+    from dbo.ST_INSTCD_E
+  </select>
+</mapper>

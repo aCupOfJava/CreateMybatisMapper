@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.WqMooopDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.WqMooopD">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="spt" />
+    <id column="PRPNM" jdbcType="CHAR" property="prpnm" />
+    <id column="LYNM" jdbcType="CHAR" property="lynm" />
+    <id column="WBTP" jdbcType="CHAR" property="wbtp" />
+    <result column="JJG" jdbcType="NUMERIC" property="jjg" />
+    <result column="YJG" jdbcType="NUMERIC" property="yjg" />
+    <result column="SYJQ" jdbcType="NUMERIC" property="syjq" />
+    <result column="DJHYS" jdbcType="NUMERIC" property="djhys" />
+    <result column="BD" jdbcType="NUMERIC" property="bd" />
+    <result column="SHHJ" jdbcType="NUMERIC" property="shhj" />
+    <result column="SJY" jdbcType="NUMERIC" property="sjy" />
+    <result column="BBAB" jdbcType="NUMERIC" property="bbab" />
+    <result column="LAS" jdbcType="NUMERIC" property="las" />
+    <result column="TOC" jdbcType="NUMERIC" property="toc" />
+    <result column="OIL" jdbcType="NUMERIC" property="oil" />
+    <result column="DZHWY" jdbcType="NUMERIC" property="dzhwy" />
+    <result column="WNZDSLR" jdbcType="NUMERIC" property="wnzdslr" />
+    <result column="CHLA" jdbcType="NUMERIC" property="chla" />
+    <result column="NT" jdbcType="VARCHAR" property="nt" />
+    <result column="SPE_REG_DATA" jdbcType="CHAR" property="speRegData" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="testComTm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.WQ_MOOOP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.WqMooopD">
+    insert into dbo.WQ_MOOOP_D (STCD, SPT, PRPNM, 
+      LYNM, WBTP, JJG, YJG, 
+      SYJQ, DJHYS, BD, SHHJ, 
+      SJY, BBAB, LAS, TOC, 
+      OIL, DZHWY, WNZDSLR, 
+      CHLA, NT, SPE_REG_DATA, 
+      TS, TEST_COM_TM)
+    values (#{stcd,jdbcType=CHAR}, #{spt,jdbcType=TIMESTAMP}, #{prpnm,jdbcType=CHAR}, 
+      #{lynm,jdbcType=CHAR}, #{wbtp,jdbcType=CHAR}, #{jjg,jdbcType=NUMERIC}, #{yjg,jdbcType=NUMERIC}, 
+      #{syjq,jdbcType=NUMERIC}, #{djhys,jdbcType=NUMERIC}, #{bd,jdbcType=NUMERIC}, #{shhj,jdbcType=NUMERIC}, 
+      #{sjy,jdbcType=NUMERIC}, #{bbab,jdbcType=NUMERIC}, #{las,jdbcType=NUMERIC}, #{toc,jdbcType=NUMERIC}, 
+      #{oil,jdbcType=NUMERIC}, #{dzhwy,jdbcType=NUMERIC}, #{wnzdslr,jdbcType=NUMERIC}, 
+      #{chla,jdbcType=NUMERIC}, #{nt,jdbcType=VARCHAR}, #{speRegData,jdbcType=CHAR}, 
+      #{ts,jdbcType=TIMESTAMP}, #{testComTm,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.WqMooopD">
+    update dbo.WQ_MOOOP_D
+    set JJG = #{jjg,jdbcType=NUMERIC},
+      YJG = #{yjg,jdbcType=NUMERIC},
+      SYJQ = #{syjq,jdbcType=NUMERIC},
+      DJHYS = #{djhys,jdbcType=NUMERIC},
+      BD = #{bd,jdbcType=NUMERIC},
+      SHHJ = #{shhj,jdbcType=NUMERIC},
+      SJY = #{sjy,jdbcType=NUMERIC},
+      BBAB = #{bbab,jdbcType=NUMERIC},
+      LAS = #{las,jdbcType=NUMERIC},
+      TOC = #{toc,jdbcType=NUMERIC},
+      OIL = #{oil,jdbcType=NUMERIC},
+      DZHWY = #{dzhwy,jdbcType=NUMERIC},
+      WNZDSLR = #{wnzdslr,jdbcType=NUMERIC},
+      CHLA = #{chla,jdbcType=NUMERIC},
+      NT = #{nt,jdbcType=VARCHAR},
+      SPE_REG_DATA = #{speRegData,jdbcType=CHAR},
+      TS = #{ts,jdbcType=TIMESTAMP},
+      TEST_COM_TM = #{testComTm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, SPT, PRPNM, LYNM, WBTP, JJG, YJG, SYJQ, DJHYS, BD, 
+    SHHJ, SJY, BBAB, LAS, TOC, OIL, DZHWY, WNZDSLR, CHLA, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_MOOOP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, SPT, PRPNM, LYNM, WBTP, JJG, YJG, SYJQ, DJHYS, BD, SHHJ, SJY, BBAB, 
+    LAS, TOC, OIL, DZHWY, WNZDSLR, CHLA, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_MOOOP_D
+  </select>
+</mapper>

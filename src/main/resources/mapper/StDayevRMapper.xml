@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StDayevRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StDayevR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="EPTP" jdbcType="CHAR" property="eptp" />
+    <result column="DYE" jdbcType="NUMERIC" property="dye" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_DAYEV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StDayevR">
+    insert into dbo.ST_DAYEV_R (STCD, TM, EPTP, DYE
+      )
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{eptp,jdbcType=CHAR}, #{dye,jdbcType=NUMERIC}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StDayevR">
+    update dbo.ST_DAYEV_R
+    set EPTP = #{eptp,jdbcType=CHAR},
+      DYE = #{dye,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, EPTP, DYE
+    from dbo.ST_DAYEV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, EPTP, DYE
+    from dbo.ST_DAYEV_R
+  </select>
+</mapper>

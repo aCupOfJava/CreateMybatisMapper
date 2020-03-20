@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StForecastcFMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StForecastcF">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="UNITNAME" jdbcType="CHAR" property="unitname" />
+    <id column="PLCD" jdbcType="CHAR" property="plcd" />
+    <id column="FYMDH" jdbcType="TIMESTAMP" property="fymdh" />
+    <id column="IYMDH" jdbcType="TIMESTAMP" property="iymdh" />
+    <result column="WNSTATUS" jdbcType="CHAR" property="wnstatus" />
+    <result column="COMMENTS" jdbcType="VARCHAR" property="comments" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_FORECASTC_F
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StForecastcF">
+    insert into dbo.ST_FORECASTC_F (STCD, UNITNAME, PLCD, 
+      FYMDH, IYMDH, WNSTATUS, 
+      COMMENTS)
+    values (#{stcd,jdbcType=CHAR}, #{unitname,jdbcType=CHAR}, #{plcd,jdbcType=CHAR}, 
+      #{fymdh,jdbcType=TIMESTAMP}, #{iymdh,jdbcType=TIMESTAMP}, #{wnstatus,jdbcType=CHAR}, 
+      #{comments,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StForecastcF">
+    update dbo.ST_FORECASTC_F
+    set WNSTATUS = #{wnstatus,jdbcType=CHAR},
+      COMMENTS = #{comments,jdbcType=VARCHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, UNITNAME, PLCD, FYMDH, IYMDH, WNSTATUS, COMMENTS
+    from dbo.ST_FORECASTC_F
+    where STCD = #{stcd,jdbcType=CHAR}
+      and UNITNAME = #{unitname,jdbcType=CHAR}
+      and PLCD = #{plcd,jdbcType=CHAR}
+      and FYMDH = #{fymdh,jdbcType=TIMESTAMP}
+      and IYMDH = #{iymdh,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, UNITNAME, PLCD, FYMDH, IYMDH, WNSTATUS, COMMENTS
+    from dbo.ST_FORECASTC_F
+  </select>
+</mapper>

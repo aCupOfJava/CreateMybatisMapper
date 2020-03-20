@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRvfcchBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRvfcchB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <result column="LDKEL" jdbcType="NUMERIC" property="ldkel" />
+    <result column="RDKEL" jdbcType="NUMERIC" property="rdkel" />
+    <result column="WRZ" jdbcType="NUMERIC" property="wrz" />
+    <result column="WRQ" jdbcType="NUMERIC" property="wrq" />
+    <result column="GRZ" jdbcType="NUMERIC" property="grz" />
+    <result column="GRQ" jdbcType="NUMERIC" property="grq" />
+    <result column="FLPQ" jdbcType="NUMERIC" property="flpq" />
+    <result column="OBHTZ" jdbcType="NUMERIC" property="obhtz" />
+    <result column="OBHTZTM" jdbcType="TIMESTAMP" property="obhtztm" />
+    <result column="IVHZ" jdbcType="NUMERIC" property="ivhz" />
+    <result column="IVHZTM" jdbcType="TIMESTAMP" property="ivhztm" />
+    <result column="OBMXQ" jdbcType="NUMERIC" property="obmxq" />
+    <result column="OBMXQTM" jdbcType="TIMESTAMP" property="obmxqtm" />
+    <result column="IVMXQ" jdbcType="NUMERIC" property="ivmxq" />
+    <result column="IVMXQTM" jdbcType="TIMESTAMP" property="ivmxqtm" />
+    <result column="HMXS" jdbcType="NUMERIC" property="hmxs" />
+    <result column="HMXSTM" jdbcType="TIMESTAMP" property="hmxstm" />
+    <result column="HMXAVV" jdbcType="NUMERIC" property="hmxavv" />
+    <result column="HMXAVVTM" jdbcType="TIMESTAMP" property="hmxavvtm" />
+    <result column="HLZ" jdbcType="NUMERIC" property="hlz" />
+    <result column="HLZTM" jdbcType="TIMESTAMP" property="hlztm" />
+    <result column="HMNQ" jdbcType="NUMERIC" property="hmnq" />
+    <result column="HMNQTM" jdbcType="TIMESTAMP" property="hmnqtm" />
+    <result column="TAZ" jdbcType="NUMERIC" property="taz" />
+    <result column="TAQ" jdbcType="NUMERIC" property="taq" />
+    <result column="LAZ" jdbcType="NUMERIC" property="laz" />
+    <result column="LAQ" jdbcType="NUMERIC" property="laq" />
+    <result column="SFZ" jdbcType="NUMERIC" property="sfz" />
+    <result column="SFQ" jdbcType="NUMERIC" property="sfq" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.ST_RVFCCH_B
+    where STCD = #{stcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRvfcchB">
+    insert into dbo.ST_RVFCCH_B (STCD, LDKEL, RDKEL, 
+      WRZ, WRQ, GRZ, GRQ, 
+      FLPQ, OBHTZ, OBHTZTM, 
+      IVHZ, IVHZTM, OBMXQ, 
+      OBMXQTM, IVMXQ, IVMXQTM, 
+      HMXS, HMXSTM, HMXAVV, 
+      HMXAVVTM, HLZ, HLZTM, 
+      HMNQ, HMNQTM, TAZ, 
+      TAQ, LAZ, LAQ, SFZ, 
+      SFQ, MODITIME)
+    values (#{stcd,jdbcType=CHAR}, #{ldkel,jdbcType=NUMERIC}, #{rdkel,jdbcType=NUMERIC}, 
+      #{wrz,jdbcType=NUMERIC}, #{wrq,jdbcType=NUMERIC}, #{grz,jdbcType=NUMERIC}, #{grq,jdbcType=NUMERIC}, 
+      #{flpq,jdbcType=NUMERIC}, #{obhtz,jdbcType=NUMERIC}, #{obhtztm,jdbcType=TIMESTAMP}, 
+      #{ivhz,jdbcType=NUMERIC}, #{ivhztm,jdbcType=TIMESTAMP}, #{obmxq,jdbcType=NUMERIC}, 
+      #{obmxqtm,jdbcType=TIMESTAMP}, #{ivmxq,jdbcType=NUMERIC}, #{ivmxqtm,jdbcType=TIMESTAMP}, 
+      #{hmxs,jdbcType=NUMERIC}, #{hmxstm,jdbcType=TIMESTAMP}, #{hmxavv,jdbcType=NUMERIC}, 
+      #{hmxavvtm,jdbcType=TIMESTAMP}, #{hlz,jdbcType=NUMERIC}, #{hlztm,jdbcType=TIMESTAMP}, 
+      #{hmnq,jdbcType=NUMERIC}, #{hmnqtm,jdbcType=TIMESTAMP}, #{taz,jdbcType=NUMERIC}, 
+      #{taq,jdbcType=NUMERIC}, #{laz,jdbcType=NUMERIC}, #{laq,jdbcType=NUMERIC}, #{sfz,jdbcType=NUMERIC}, 
+      #{sfq,jdbcType=NUMERIC}, #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRvfcchB">
+    update dbo.ST_RVFCCH_B
+    set LDKEL = #{ldkel,jdbcType=NUMERIC},
+      RDKEL = #{rdkel,jdbcType=NUMERIC},
+      WRZ = #{wrz,jdbcType=NUMERIC},
+      WRQ = #{wrq,jdbcType=NUMERIC},
+      GRZ = #{grz,jdbcType=NUMERIC},
+      GRQ = #{grq,jdbcType=NUMERIC},
+      FLPQ = #{flpq,jdbcType=NUMERIC},
+      OBHTZ = #{obhtz,jdbcType=NUMERIC},
+      OBHTZTM = #{obhtztm,jdbcType=TIMESTAMP},
+      IVHZ = #{ivhz,jdbcType=NUMERIC},
+      IVHZTM = #{ivhztm,jdbcType=TIMESTAMP},
+      OBMXQ = #{obmxq,jdbcType=NUMERIC},
+      OBMXQTM = #{obmxqtm,jdbcType=TIMESTAMP},
+      IVMXQ = #{ivmxq,jdbcType=NUMERIC},
+      IVMXQTM = #{ivmxqtm,jdbcType=TIMESTAMP},
+      HMXS = #{hmxs,jdbcType=NUMERIC},
+      HMXSTM = #{hmxstm,jdbcType=TIMESTAMP},
+      HMXAVV = #{hmxavv,jdbcType=NUMERIC},
+      HMXAVVTM = #{hmxavvtm,jdbcType=TIMESTAMP},
+      HLZ = #{hlz,jdbcType=NUMERIC},
+      HLZTM = #{hlztm,jdbcType=TIMESTAMP},
+      HMNQ = #{hmnq,jdbcType=NUMERIC},
+      HMNQTM = #{hmnqtm,jdbcType=TIMESTAMP},
+      TAZ = #{taz,jdbcType=NUMERIC},
+      TAQ = #{taq,jdbcType=NUMERIC},
+      LAZ = #{laz,jdbcType=NUMERIC},
+      LAQ = #{laq,jdbcType=NUMERIC},
+      SFZ = #{sfz,jdbcType=NUMERIC},
+      SFQ = #{sfq,jdbcType=NUMERIC},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, LDKEL, RDKEL, WRZ, WRQ, GRZ, GRQ, FLPQ, OBHTZ, OBHTZTM, 
+    IVHZ, IVHZTM, OBMXQ, OBMXQTM, IVMXQ, IVMXQTM, HMXS, HMXSTM, HMXAVV, HMXAVVTM, HLZ, 
+    HLZTM, HMNQ, HMNQTM, TAZ, TAQ, LAZ, LAQ, SFZ, SFQ, MODITIME
+    from dbo.ST_RVFCCH_B
+    where STCD = #{stcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, LDKEL, RDKEL, WRZ, WRQ, GRZ, GRQ, FLPQ, OBHTZ, OBHTZTM, IVHZ, IVHZTM, 
+    OBMXQ, OBMXQTM, IVMXQ, IVMXQTM, HMXS, HMXSTM, HMXAVV, HMXAVVTM, HLZ, HLZTM, HMNQ, 
+    HMNQTM, TAZ, TAQ, LAZ, LAQ, SFZ, SFQ, MODITIME
+    from dbo.ST_RVFCCH_B
+  </select>
+</mapper>

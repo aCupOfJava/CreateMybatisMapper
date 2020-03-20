@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StWasevsRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StWasevsR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="HTUPZ" jdbcType="NUMERIC" property="htupz" />
+    <result column="LTUPZ" jdbcType="NUMERIC" property="ltupz" />
+    <result column="MXGTQ" jdbcType="NUMERIC" property="mxgtq" />
+    <result column="MNGTQ" jdbcType="NUMERIC" property="mngtq" />
+    <result column="HTDWZ" jdbcType="NUMERIC" property="htdwz" />
+    <result column="LTDWZ" jdbcType="NUMERIC" property="ltdwz" />
+    <result column="HTUPZTM" jdbcType="TIMESTAMP" property="htupztm" />
+    <result column="LTUPZTM" jdbcType="TIMESTAMP" property="ltupztm" />
+    <result column="MXGTQTM" jdbcType="TIMESTAMP" property="mxgtqtm" />
+    <result column="MNGTQTM" jdbcType="TIMESTAMP" property="mngtqtm" />
+    <result column="HTDWZTM" jdbcType="TIMESTAMP" property="htdwztm" />
+    <result column="LTDWZTM" jdbcType="TIMESTAMP" property="ltdwztm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_WASEVS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StWasevsR">
+    insert into dbo.ST_WASEVS_R (STCD, IDTM, STTDRCD, 
+      HTUPZ, LTUPZ, MXGTQ, 
+      MNGTQ, HTDWZ, LTDWZ, 
+      HTUPZTM, LTUPZTM, MXGTQTM, 
+      MNGTQTM, HTDWZTM, LTDWZTM
+      )
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{htupz,jdbcType=NUMERIC}, #{ltupz,jdbcType=NUMERIC}, #{mxgtq,jdbcType=NUMERIC}, 
+      #{mngtq,jdbcType=NUMERIC}, #{htdwz,jdbcType=NUMERIC}, #{ltdwz,jdbcType=NUMERIC}, 
+      #{htupztm,jdbcType=TIMESTAMP}, #{ltupztm,jdbcType=TIMESTAMP}, #{mxgtqtm,jdbcType=TIMESTAMP}, 
+      #{mngtqtm,jdbcType=TIMESTAMP}, #{htdwztm,jdbcType=TIMESTAMP}, #{ltdwztm,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StWasevsR">
+    update dbo.ST_WASEVS_R
+    set HTUPZ = #{htupz,jdbcType=NUMERIC},
+      LTUPZ = #{ltupz,jdbcType=NUMERIC},
+      MXGTQ = #{mxgtq,jdbcType=NUMERIC},
+      MNGTQ = #{mngtq,jdbcType=NUMERIC},
+      HTDWZ = #{htdwz,jdbcType=NUMERIC},
+      LTDWZ = #{ltdwz,jdbcType=NUMERIC},
+      HTUPZTM = #{htupztm,jdbcType=TIMESTAMP},
+      LTUPZTM = #{ltupztm,jdbcType=TIMESTAMP},
+      MXGTQTM = #{mxgtqtm,jdbcType=TIMESTAMP},
+      MNGTQTM = #{mngtqtm,jdbcType=TIMESTAMP},
+      HTDWZTM = #{htdwztm,jdbcType=TIMESTAMP},
+      LTDWZTM = #{ltdwztm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, HTUPZ, LTUPZ, MXGTQ, MNGTQ, HTDWZ, 
+    LTDWZ, HTUPZTM, LTUPZTM, MXGTQTM, MNGTQTM, HTDWZTM, LTDWZTM
+    from dbo.ST_WASEVS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, HTUPZ, LTUPZ, MXGTQ, MNGTQ, HTDWZ, LTDWZ, HTUPZTM, LTUPZTM, 
+    MXGTQTM, MNGTQTM, HTDWZTM, LTDWZTM
+    from dbo.ST_WASEVS_R
+  </select>
+</mapper>

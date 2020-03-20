@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StPumpRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StPumpR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="PPUPZ" jdbcType="NUMERIC" property="ppupz" />
+    <result column="PPDWZ" jdbcType="NUMERIC" property="ppdwz" />
+    <result column="OMCN" jdbcType="NUMERIC" property="omcn" />
+    <result column="OMPWR" jdbcType="NUMERIC" property="ompwr" />
+    <result column="PMPQ" jdbcType="NUMERIC" property="pmpq" />
+    <result column="PPWCHRCD" jdbcType="CHAR" property="ppwchrcd" />
+    <result column="PPUPWPTN" jdbcType="CHAR" property="ppupwptn" />
+    <result column="PPDWWPTN" jdbcType="CHAR" property="ppdwwptn" />
+    <result column="MSQMT" jdbcType="CHAR" property="msqmt" />
+    <result column="PDCHCD" jdbcType="CHAR" property="pdchcd" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_PUMP_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StPumpR">
+    insert into dbo.ST_PUMP_R (STCD, TM, PPUPZ, 
+      PPDWZ, OMCN, OMPWR, 
+      PMPQ, PPWCHRCD, PPUPWPTN, 
+      PPDWWPTN, MSQMT, PDCHCD)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{ppupz,jdbcType=NUMERIC}, 
+      #{ppdwz,jdbcType=NUMERIC}, #{omcn,jdbcType=NUMERIC}, #{ompwr,jdbcType=NUMERIC}, 
+      #{pmpq,jdbcType=NUMERIC}, #{ppwchrcd,jdbcType=CHAR}, #{ppupwptn,jdbcType=CHAR}, 
+      #{ppdwwptn,jdbcType=CHAR}, #{msqmt,jdbcType=CHAR}, #{pdchcd,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StPumpR">
+    update dbo.ST_PUMP_R
+    set PPUPZ = #{ppupz,jdbcType=NUMERIC},
+      PPDWZ = #{ppdwz,jdbcType=NUMERIC},
+      OMCN = #{omcn,jdbcType=NUMERIC},
+      OMPWR = #{ompwr,jdbcType=NUMERIC},
+      PMPQ = #{pmpq,jdbcType=NUMERIC},
+      PPWCHRCD = #{ppwchrcd,jdbcType=CHAR},
+      PPUPWPTN = #{ppupwptn,jdbcType=CHAR},
+      PPDWWPTN = #{ppdwwptn,jdbcType=CHAR},
+      MSQMT = #{msqmt,jdbcType=CHAR},
+      PDCHCD = #{pdchcd,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, PPUPZ, PPDWZ, OMCN, OMPWR, PMPQ, PPWCHRCD, PPUPWPTN, 
+    PPDWWPTN, MSQMT, PDCHCD
+    from dbo.ST_PUMP_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, PPUPZ, PPDWZ, OMCN, OMPWR, PMPQ, PPWCHRCD, PPUPWPTN, PPDWWPTN, MSQMT, 
+    PDCHCD
+    from dbo.ST_PUMP_R
+  </select>
+</mapper>

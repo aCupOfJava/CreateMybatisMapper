@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRsvrfcchBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRsvrfcchB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <result column="RSVRTP" jdbcType="CHAR" property="rsvrtp" />
+    <result column="DAMEL" jdbcType="NUMERIC" property="damel" />
+    <result column="CKFLZ" jdbcType="NUMERIC" property="ckflz" />
+    <result column="DSFLZ" jdbcType="NUMERIC" property="dsflz" />
+    <result column="NORMZ" jdbcType="NUMERIC" property="normz" />
+    <result column="DDZ" jdbcType="NUMERIC" property="ddz" />
+    <result column="ACTZ" jdbcType="NUMERIC" property="actz" />
+    <result column="TTCP" jdbcType="NUMERIC" property="ttcp" />
+    <result column="FLDCP" jdbcType="NUMERIC" property="fldcp" />
+    <result column="ACTCP" jdbcType="NUMERIC" property="actcp" />
+    <result column="DDCP" jdbcType="NUMERIC" property="ddcp" />
+    <result column="HHRZ" jdbcType="NUMERIC" property="hhrz" />
+    <result column="HMXW" jdbcType="NUMERIC" property="hmxw" />
+    <result column="HHRZTM" jdbcType="TIMESTAMP" property="hhrztm" />
+    <result column="HMXINQ" jdbcType="NUMERIC" property="hmxinq" />
+    <result column="RSTDR" jdbcType="NUMERIC" property="rstdr" />
+    <result column="HMXINQTM" jdbcType="TIMESTAMP" property="hmxinqtm" />
+    <result column="HMXOTQ" jdbcType="NUMERIC" property="hmxotq" />
+    <result column="HMXOTQTM" jdbcType="TIMESTAMP" property="hmxotqtm" />
+    <result column="HLRZ" jdbcType="NUMERIC" property="hlrz" />
+    <result column="HLRZTM" jdbcType="TIMESTAMP" property="hlrztm" />
+    <result column="HMNINQ" jdbcType="NUMERIC" property="hmninq" />
+    <result column="HMNINQTM" jdbcType="TIMESTAMP" property="hmninqtm" />
+    <result column="LAZ" jdbcType="NUMERIC" property="laz" />
+    <result column="SFQ" jdbcType="NUMERIC" property="sfq" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.ST_RSVRFCCH_B
+    where STCD = #{stcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRsvrfcchB">
+    insert into dbo.ST_RSVRFCCH_B (STCD, RSVRTP, DAMEL, 
+      CKFLZ, DSFLZ, NORMZ, 
+      DDZ, ACTZ, TTCP, FLDCP, 
+      ACTCP, DDCP, HHRZ, 
+      HMXW, HHRZTM, HMXINQ, 
+      RSTDR, HMXINQTM, HMXOTQ, 
+      HMXOTQTM, HLRZ, HLRZTM, 
+      HMNINQ, HMNINQTM, LAZ, 
+      SFQ, MODITIME)
+    values (#{stcd,jdbcType=CHAR}, #{rsvrtp,jdbcType=CHAR}, #{damel,jdbcType=NUMERIC}, 
+      #{ckflz,jdbcType=NUMERIC}, #{dsflz,jdbcType=NUMERIC}, #{normz,jdbcType=NUMERIC}, 
+      #{ddz,jdbcType=NUMERIC}, #{actz,jdbcType=NUMERIC}, #{ttcp,jdbcType=NUMERIC}, #{fldcp,jdbcType=NUMERIC}, 
+      #{actcp,jdbcType=NUMERIC}, #{ddcp,jdbcType=NUMERIC}, #{hhrz,jdbcType=NUMERIC}, 
+      #{hmxw,jdbcType=NUMERIC}, #{hhrztm,jdbcType=TIMESTAMP}, #{hmxinq,jdbcType=NUMERIC}, 
+      #{rstdr,jdbcType=NUMERIC}, #{hmxinqtm,jdbcType=TIMESTAMP}, #{hmxotq,jdbcType=NUMERIC}, 
+      #{hmxotqtm,jdbcType=TIMESTAMP}, #{hlrz,jdbcType=NUMERIC}, #{hlrztm,jdbcType=TIMESTAMP}, 
+      #{hmninq,jdbcType=NUMERIC}, #{hmninqtm,jdbcType=TIMESTAMP}, #{laz,jdbcType=NUMERIC}, 
+      #{sfq,jdbcType=NUMERIC}, #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRsvrfcchB">
+    update dbo.ST_RSVRFCCH_B
+    set RSVRTP = #{rsvrtp,jdbcType=CHAR},
+      DAMEL = #{damel,jdbcType=NUMERIC},
+      CKFLZ = #{ckflz,jdbcType=NUMERIC},
+      DSFLZ = #{dsflz,jdbcType=NUMERIC},
+      NORMZ = #{normz,jdbcType=NUMERIC},
+      DDZ = #{ddz,jdbcType=NUMERIC},
+      ACTZ = #{actz,jdbcType=NUMERIC},
+      TTCP = #{ttcp,jdbcType=NUMERIC},
+      FLDCP = #{fldcp,jdbcType=NUMERIC},
+      ACTCP = #{actcp,jdbcType=NUMERIC},
+      DDCP = #{ddcp,jdbcType=NUMERIC},
+      HHRZ = #{hhrz,jdbcType=NUMERIC},
+      HMXW = #{hmxw,jdbcType=NUMERIC},
+      HHRZTM = #{hhrztm,jdbcType=TIMESTAMP},
+      HMXINQ = #{hmxinq,jdbcType=NUMERIC},
+      RSTDR = #{rstdr,jdbcType=NUMERIC},
+      HMXINQTM = #{hmxinqtm,jdbcType=TIMESTAMP},
+      HMXOTQ = #{hmxotq,jdbcType=NUMERIC},
+      HMXOTQTM = #{hmxotqtm,jdbcType=TIMESTAMP},
+      HLRZ = #{hlrz,jdbcType=NUMERIC},
+      HLRZTM = #{hlrztm,jdbcType=TIMESTAMP},
+      HMNINQ = #{hmninq,jdbcType=NUMERIC},
+      HMNINQTM = #{hmninqtm,jdbcType=TIMESTAMP},
+      LAZ = #{laz,jdbcType=NUMERIC},
+      SFQ = #{sfq,jdbcType=NUMERIC},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, RSVRTP, DAMEL, CKFLZ, DSFLZ, NORMZ, DDZ, ACTZ, TTCP, 
+    FLDCP, ACTCP, DDCP, HHRZ, HMXW, HHRZTM, HMXINQ, RSTDR, HMXINQTM, HMXOTQ, HMXOTQTM, 
+    HLRZ, HLRZTM, HMNINQ, HMNINQTM, LAZ, SFQ, MODITIME
+    from dbo.ST_RSVRFCCH_B
+    where STCD = #{stcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, RSVRTP, DAMEL, CKFLZ, DSFLZ, NORMZ, DDZ, ACTZ, TTCP, FLDCP, ACTCP, DDCP, 
+    HHRZ, HMXW, HHRZTM, HMXINQ, RSTDR, HMXINQTM, HMXOTQ, HMXOTQTM, HLRZ, HLRZTM, HMNINQ, 
+    HMNINQTM, LAZ, SFQ, MODITIME
+    from dbo.ST_RSVRFCCH_B
+  </select>
+</mapper>

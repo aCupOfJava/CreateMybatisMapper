@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StZvarlBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StZvarlB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="MSTM" jdbcType="TIMESTAMP" property="mstm" />
+    <id column="PTNO" jdbcType="NUMERIC" property="ptno" />
+    <result column="RZ" jdbcType="NUMERIC" property="rz" />
+    <result column="W" jdbcType="NUMERIC" property="w" />
+    <result column="WSFA" jdbcType="NUMERIC" property="wsfa" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_ZVARL_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MSTM = #{mstm,jdbcType=TIMESTAMP}
+      and PTNO = #{ptno,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StZvarlB">
+    insert into dbo.ST_ZVARL_B (STCD, MSTM, PTNO, 
+      RZ, W, WSFA, MODITIME
+      )
+    values (#{stcd,jdbcType=CHAR}, #{mstm,jdbcType=TIMESTAMP}, #{ptno,jdbcType=NUMERIC}, 
+      #{rz,jdbcType=NUMERIC}, #{w,jdbcType=NUMERIC}, #{wsfa,jdbcType=NUMERIC}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StZvarlB">
+    update dbo.ST_ZVARL_B
+    set RZ = #{rz,jdbcType=NUMERIC},
+      W = #{w,jdbcType=NUMERIC},
+      WSFA = #{wsfa,jdbcType=NUMERIC},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MSTM = #{mstm,jdbcType=TIMESTAMP}
+      and PTNO = #{ptno,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, MSTM, PTNO, RZ, W, WSFA, MODITIME
+    from dbo.ST_ZVARL_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MSTM = #{mstm,jdbcType=TIMESTAMP}
+      and PTNO = #{ptno,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, MSTM, PTNO, RZ, W, WSFA, MODITIME
+    from dbo.ST_ZVARL_B
+  </select>
+</mapper>

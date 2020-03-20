@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRecvinfEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRecvinfE">
+    <id column="RLSH" jdbcType="NUMERIC" property="rlsh" />
+    <result column="RFNUM" jdbcType="NUMERIC" property="rfnum" />
+    <result column="INSTCD" jdbcType="VARCHAR" property="instcd" />
+    <result column="SLSH" jdbcType="NUMERIC" property="slsh" />
+    <result column="STCD" jdbcType="VARCHAR" property="stcd" />
+    <result column="TABID" jdbcType="VARCHAR" property="tabid" />
+    <result column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="EXCKEY" jdbcType="VARCHAR" property="exckey" />
+    <result column="OPERATION" jdbcType="VARCHAR" property="operation" />
+    <result column="EXCINF" jdbcType="VARCHAR" property="excinf" />
+    <result column="INSTOSTATUS" jdbcType="VARCHAR" property="instostatus" />
+    <result column="INSTOTM" jdbcType="TIMESTAMP" property="instotm" />
+    <result column="ERRINF" jdbcType="VARCHAR" property="errinf" />
+    <result column="MANUALTM" jdbcType="TIMESTAMP" property="manualtm" />
+    <result column="STAT" jdbcType="VARCHAR" property="stat" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dbo.ST_RECVINF_E
+    where RLSH = #{rlsh,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRecvinfE">
+    insert into dbo.ST_RECVINF_E (RLSH, RFNUM, INSTCD, 
+      SLSH, STCD, TABID, 
+      TM, EXCKEY, `OPERATION`, 
+      EXCINF, INSTOSTATUS, INSTOTM, 
+      ERRINF, MANUALTM, STAT, 
+      MODITIME)
+    values (#{rlsh,jdbcType=NUMERIC}, #{rfnum,jdbcType=NUMERIC}, #{instcd,jdbcType=VARCHAR}, 
+      #{slsh,jdbcType=NUMERIC}, #{stcd,jdbcType=VARCHAR}, #{tabid,jdbcType=VARCHAR}, 
+      #{tm,jdbcType=TIMESTAMP}, #{exckey,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, 
+      #{excinf,jdbcType=VARCHAR}, #{instostatus,jdbcType=VARCHAR}, #{instotm,jdbcType=TIMESTAMP}, 
+      #{errinf,jdbcType=VARCHAR}, #{manualtm,jdbcType=TIMESTAMP}, #{stat,jdbcType=VARCHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRecvinfE">
+    update dbo.ST_RECVINF_E
+    set RFNUM = #{rfnum,jdbcType=NUMERIC},
+      INSTCD = #{instcd,jdbcType=VARCHAR},
+      SLSH = #{slsh,jdbcType=NUMERIC},
+      STCD = #{stcd,jdbcType=VARCHAR},
+      TABID = #{tabid,jdbcType=VARCHAR},
+      TM = #{tm,jdbcType=TIMESTAMP},
+      EXCKEY = #{exckey,jdbcType=VARCHAR},
+      `OPERATION` = #{operation,jdbcType=VARCHAR},
+      EXCINF = #{excinf,jdbcType=VARCHAR},
+      INSTOSTATUS = #{instostatus,jdbcType=VARCHAR},
+      INSTOTM = #{instotm,jdbcType=TIMESTAMP},
+      ERRINF = #{errinf,jdbcType=VARCHAR},
+      MANUALTM = #{manualtm,jdbcType=TIMESTAMP},
+      STAT = #{stat,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where RLSH = #{rlsh,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'true' as QUERYID,RLSH, RFNUM, INSTCD, SLSH, STCD, TABID, TM, EXCKEY, `OPERATION`, 
+    EXCINF, INSTOSTATUS, INSTOTM, ERRINF, MANUALTM, STAT, MODITIME
+    from dbo.ST_RECVINF_E
+    where RLSH = #{rlsh,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select RLSH, RFNUM, INSTCD, SLSH, STCD, TABID, TM, EXCKEY, `OPERATION`, EXCINF, INSTOSTATUS, 
+    INSTOTM, ERRINF, MANUALTM, STAT, MODITIME
+    from dbo.ST_RECVINF_E
+  </select>
+</mapper>

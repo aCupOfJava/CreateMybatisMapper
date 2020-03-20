@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StSendfileEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StSendfileE">
+    <id column="SFNUM" jdbcType="NUMERIC" property="sfnum" />
+    <result column="INSTCD" jdbcType="VARCHAR" property="instcd" />
+    <result column="SENDTYPE" jdbcType="VARCHAR" property="sendtype" />
+    <result column="SENDSTATUS" jdbcType="VARCHAR" property="sendstatus" />
+    <result column="SFILENAME" jdbcType="VARCHAR" property="sfilename" />
+    <result column="SENDTM" jdbcType="TIMESTAMP" property="sendtm" />
+    <result column="SENDCOUNT" jdbcType="NUMERIC" property="sendcount" />
+    <result column="ERRLINE" jdbcType="NUMERIC" property="errline" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dbo.ST_SENDFILE_E
+    where SFNUM = #{sfnum,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StSendfileE">
+    insert into dbo.ST_SENDFILE_E (SFNUM, INSTCD, SENDTYPE, 
+      SENDSTATUS, SFILENAME, SENDTM, 
+      SENDCOUNT, ERRLINE, MODITIME
+      )
+    values (#{sfnum,jdbcType=NUMERIC}, #{instcd,jdbcType=VARCHAR}, #{sendtype,jdbcType=VARCHAR}, 
+      #{sendstatus,jdbcType=VARCHAR}, #{sfilename,jdbcType=VARCHAR}, #{sendtm,jdbcType=TIMESTAMP}, 
+      #{sendcount,jdbcType=NUMERIC}, #{errline,jdbcType=NUMERIC}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StSendfileE">
+    update dbo.ST_SENDFILE_E
+    set INSTCD = #{instcd,jdbcType=VARCHAR},
+      SENDTYPE = #{sendtype,jdbcType=VARCHAR},
+      SENDSTATUS = #{sendstatus,jdbcType=VARCHAR},
+      SFILENAME = #{sfilename,jdbcType=VARCHAR},
+      SENDTM = #{sendtm,jdbcType=TIMESTAMP},
+      SENDCOUNT = #{sendcount,jdbcType=NUMERIC},
+      ERRLINE = #{errline,jdbcType=NUMERIC},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where SFNUM = #{sfnum,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'true' as QUERYID,SFNUM, INSTCD, SENDTYPE, SENDSTATUS, SFILENAME, SENDTM, 
+    SENDCOUNT, ERRLINE, MODITIME
+    from dbo.ST_SENDFILE_E
+    where SFNUM = #{sfnum,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SFNUM, INSTCD, SENDTYPE, SENDSTATUS, SFILENAME, SENDTM, SENDCOUNT, ERRLINE, 
+    MODITIME
+    from dbo.ST_SENDFILE_E
+  </select>
+</mapper>

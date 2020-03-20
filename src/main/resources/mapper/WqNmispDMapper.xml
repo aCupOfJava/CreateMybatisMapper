@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.WqNmispDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.WqNmispD">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="SPT" jdbcType="TIMESTAMP" property="spt" />
+    <id column="PRPNM" jdbcType="CHAR" property="prpnm" />
+    <id column="LYNM" jdbcType="CHAR" property="lynm" />
+    <id column="WBTP" jdbcType="CHAR" property="wbtp" />
+    <result column="DOX" jdbcType="NUMERIC" property="dox" />
+    <result column="CODMN" jdbcType="NUMERIC" property="codmn" />
+    <result column="CODCR" jdbcType="NUMERIC" property="codcr" />
+    <result column="BOD5" jdbcType="NUMERIC" property="bod5" />
+    <result column="SO4" jdbcType="NUMERIC" property="so4" />
+    <result column="TIC" jdbcType="NUMERIC" property="tic" />
+    <result column="TN" jdbcType="NUMERIC" property="tn" />
+    <result column="NH3N" jdbcType="NUMERIC" property="nh3n" />
+    <result column="NH3" jdbcType="NUMERIC" property="nh3" />
+    <result column="NO2" jdbcType="NUMERIC" property="no2" />
+    <result column="NO3" jdbcType="NUMERIC" property="no3" />
+    <result column="KN" jdbcType="NUMERIC" property="kn" />
+    <result column="S2" jdbcType="NUMERIC" property="s2" />
+    <result column="CN" jdbcType="NUMERIC" property="cn" />
+    <result column="TCN" jdbcType="NUMERIC" property="tcn" />
+    <result column="EP" jdbcType="NUMERIC" property="ep" />
+    <result column="TP" jdbcType="NUMERIC" property="tp" />
+    <result column="YP" jdbcType="NUMERIC" property="yp" />
+    <result column="PO4" jdbcType="NUMERIC" property="po4" />
+    <result column="DTP" jdbcType="NUMERIC" property="dtp" />
+    <result column="F" jdbcType="NUMERIC" property="f" />
+    <result column="CL" jdbcType="NUMERIC" property="cl" />
+    <result column="FCHL" jdbcType="NUMERIC" property="fchl" />
+    <result column="ACHL" jdbcType="NUMERIC" property="achl" />
+    <result column="TCHL" jdbcType="NUMERIC" property="tchl" />
+    <result column="I" jdbcType="NUMERIC" property="i" />
+    <result column="SI" jdbcType="NUMERIC" property="si" />
+    <result column="B" jdbcType="NUMERIC" property="b" />
+    <result column="NT" jdbcType="VARCHAR" property="nt" />
+    <result column="SPE_REG_DATA" jdbcType="CHAR" property="speRegData" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+    <result column="TEST_COM_TM" jdbcType="TIMESTAMP" property="testComTm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.WQ_NMISP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.WqNmispD">
+    insert into dbo.WQ_NMISP_D (STCD, SPT, PRPNM, 
+      LYNM, WBTP, DOX, CODMN, 
+      CODCR, BOD5, SO4, TIC, 
+      TN, NH3N, NH3, NO2, 
+      NO3, KN, S2, CN, 
+      TCN, EP, TP, YP, 
+      PO4, DTP, F, CL, 
+      FCHL, ACHL, TCHL, I, 
+      SI, B, NT, SPE_REG_DATA, 
+      TS, TEST_COM_TM)
+    values (#{stcd,jdbcType=CHAR}, #{spt,jdbcType=TIMESTAMP}, #{prpnm,jdbcType=CHAR}, 
+      #{lynm,jdbcType=CHAR}, #{wbtp,jdbcType=CHAR}, #{dox,jdbcType=NUMERIC}, #{codmn,jdbcType=NUMERIC}, 
+      #{codcr,jdbcType=NUMERIC}, #{bod5,jdbcType=NUMERIC}, #{so4,jdbcType=NUMERIC}, #{tic,jdbcType=NUMERIC}, 
+      #{tn,jdbcType=NUMERIC}, #{nh3n,jdbcType=NUMERIC}, #{nh3,jdbcType=NUMERIC}, #{no2,jdbcType=NUMERIC}, 
+      #{no3,jdbcType=NUMERIC}, #{kn,jdbcType=NUMERIC}, #{s2,jdbcType=NUMERIC}, #{cn,jdbcType=NUMERIC}, 
+      #{tcn,jdbcType=NUMERIC}, #{ep,jdbcType=NUMERIC}, #{tp,jdbcType=NUMERIC}, #{yp,jdbcType=NUMERIC}, 
+      #{po4,jdbcType=NUMERIC}, #{dtp,jdbcType=NUMERIC}, #{f,jdbcType=NUMERIC}, #{cl,jdbcType=NUMERIC}, 
+      #{fchl,jdbcType=NUMERIC}, #{achl,jdbcType=NUMERIC}, #{tchl,jdbcType=NUMERIC}, #{i,jdbcType=NUMERIC}, 
+      #{si,jdbcType=NUMERIC}, #{b,jdbcType=NUMERIC}, #{nt,jdbcType=VARCHAR}, #{speRegData,jdbcType=CHAR}, 
+      #{ts,jdbcType=TIMESTAMP}, #{testComTm,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.WqNmispD">
+    update dbo.WQ_NMISP_D
+    set DOX = #{dox,jdbcType=NUMERIC},
+      CODMN = #{codmn,jdbcType=NUMERIC},
+      CODCR = #{codcr,jdbcType=NUMERIC},
+      BOD5 = #{bod5,jdbcType=NUMERIC},
+      SO4 = #{so4,jdbcType=NUMERIC},
+      TIC = #{tic,jdbcType=NUMERIC},
+      TN = #{tn,jdbcType=NUMERIC},
+      NH3N = #{nh3n,jdbcType=NUMERIC},
+      NH3 = #{nh3,jdbcType=NUMERIC},
+      NO2 = #{no2,jdbcType=NUMERIC},
+      NO3 = #{no3,jdbcType=NUMERIC},
+      KN = #{kn,jdbcType=NUMERIC},
+      S2 = #{s2,jdbcType=NUMERIC},
+      CN = #{cn,jdbcType=NUMERIC},
+      TCN = #{tcn,jdbcType=NUMERIC},
+      EP = #{ep,jdbcType=NUMERIC},
+      TP = #{tp,jdbcType=NUMERIC},
+      YP = #{yp,jdbcType=NUMERIC},
+      PO4 = #{po4,jdbcType=NUMERIC},
+      DTP = #{dtp,jdbcType=NUMERIC},
+      F = #{f,jdbcType=NUMERIC},
+      CL = #{cl,jdbcType=NUMERIC},
+      FCHL = #{fchl,jdbcType=NUMERIC},
+      ACHL = #{achl,jdbcType=NUMERIC},
+      TCHL = #{tchl,jdbcType=NUMERIC},
+      I = #{i,jdbcType=NUMERIC},
+      SI = #{si,jdbcType=NUMERIC},
+      B = #{b,jdbcType=NUMERIC},
+      NT = #{nt,jdbcType=VARCHAR},
+      SPE_REG_DATA = #{speRegData,jdbcType=CHAR},
+      TS = #{ts,jdbcType=TIMESTAMP},
+      TEST_COM_TM = #{testComTm,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, SPT, PRPNM, LYNM, WBTP, DOX, CODMN, CODCR, BOD5, SO4, 
+    TIC, TN, NH3N, NH3, NO2, NO3, KN, S2, CN, TCN, EP, TP, YP, PO4, DTP, F, CL, FCHL, 
+    ACHL, TCHL, I, SI, B, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_NMISP_D
+    where STCD = #{stcd,jdbcType=CHAR}
+      and SPT = #{spt,jdbcType=TIMESTAMP}
+      and PRPNM = #{prpnm,jdbcType=CHAR}
+      and LYNM = #{lynm,jdbcType=CHAR}
+      and WBTP = #{wbtp,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, SPT, PRPNM, LYNM, WBTP, DOX, CODMN, CODCR, BOD5, SO4, TIC, TN, NH3N, 
+    NH3, NO2, NO3, KN, S2, CN, TCN, EP, TP, YP, PO4, DTP, F, CL, FCHL, ACHL, TCHL, I, 
+    SI, B, NT, SPE_REG_DATA, TS, TEST_COM_TM
+    from dbo.WQ_NMISP_D
+  </select>
+</mapper>

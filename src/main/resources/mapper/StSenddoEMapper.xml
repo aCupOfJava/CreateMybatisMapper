@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StSenddoEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StSenddoE">
+    <id column="SLSH" jdbcType="NUMERIC" property="slsh" />
+    <result column="STCD" jdbcType="VARCHAR" property="stcd" />
+    <result column="TABID" jdbcType="VARCHAR" property="tabid" />
+    <result column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="EXCKEY" jdbcType="VARCHAR" property="exckey" />
+    <result column="OPERATION" jdbcType="VARCHAR" property="operation" />
+    <result column="EXCINF" jdbcType="VARCHAR" property="excinf" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dbo.ST_SENDDO_E
+    where SLSH = #{slsh,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StSenddoE">
+    insert into dbo.ST_SENDDO_E (SLSH, STCD, TABID, 
+      TM, EXCKEY, `OPERATION`, 
+      EXCINF, MODITIME)
+    values (#{slsh,jdbcType=NUMERIC}, #{stcd,jdbcType=VARCHAR}, #{tabid,jdbcType=VARCHAR}, 
+      #{tm,jdbcType=TIMESTAMP}, #{exckey,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, 
+      #{excinf,jdbcType=VARCHAR}, #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StSenddoE">
+    update dbo.ST_SENDDO_E
+    set STCD = #{stcd,jdbcType=VARCHAR},
+      TABID = #{tabid,jdbcType=VARCHAR},
+      TM = #{tm,jdbcType=TIMESTAMP},
+      EXCKEY = #{exckey,jdbcType=VARCHAR},
+      `OPERATION` = #{operation,jdbcType=VARCHAR},
+      EXCINF = #{excinf,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where SLSH = #{slsh,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'true' as QUERYID,SLSH, STCD, TABID, TM, EXCKEY, `OPERATION`, EXCINF, MODITIME
+    from dbo.ST_SENDDO_E
+    where SLSH = #{slsh,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select SLSH, STCD, TABID, TM, EXCKEY, `OPERATION`, EXCINF, MODITIME
+    from dbo.ST_SENDDO_E
+  </select>
+</mapper>

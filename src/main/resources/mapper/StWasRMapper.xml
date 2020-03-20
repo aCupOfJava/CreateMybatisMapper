@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StWasRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StWasR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="UPZ" jdbcType="NUMERIC" property="upz" />
+    <result column="DWZ" jdbcType="NUMERIC" property="dwz" />
+    <result column="TGTQ" jdbcType="NUMERIC" property="tgtq" />
+    <result column="SWCHRCD" jdbcType="CHAR" property="swchrcd" />
+    <result column="SUPWPTN" jdbcType="CHAR" property="supwptn" />
+    <result column="SDWWPTN" jdbcType="CHAR" property="sdwwptn" />
+    <result column="MSQMT" jdbcType="CHAR" property="msqmt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_WAS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StWasR">
+    insert into dbo.ST_WAS_R (STCD, TM, UPZ, 
+      DWZ, TGTQ, SWCHRCD, SUPWPTN, 
+      SDWWPTN, MSQMT)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{upz,jdbcType=NUMERIC}, 
+      #{dwz,jdbcType=NUMERIC}, #{tgtq,jdbcType=NUMERIC}, #{swchrcd,jdbcType=CHAR}, #{supwptn,jdbcType=CHAR}, 
+      #{sdwwptn,jdbcType=CHAR}, #{msqmt,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StWasR">
+    update dbo.ST_WAS_R
+    set UPZ = #{upz,jdbcType=NUMERIC},
+      DWZ = #{dwz,jdbcType=NUMERIC},
+      TGTQ = #{tgtq,jdbcType=NUMERIC},
+      SWCHRCD = #{swchrcd,jdbcType=CHAR},
+      SUPWPTN = #{supwptn,jdbcType=CHAR},
+      SDWWPTN = #{sdwwptn,jdbcType=CHAR},
+      MSQMT = #{msqmt,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, UPZ, DWZ, TGTQ, SWCHRCD, SUPWPTN, SDWWPTN, MSQMT
+    from dbo.ST_WAS_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, UPZ, DWZ, TGTQ, SWCHRCD, SUPWPTN, SDWWPTN, MSQMT
+    from dbo.ST_WAS_R
+  </select>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StTableEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StTableE">
+    <id column="INSTCD" jdbcType="VARCHAR" property="instcd" />
+    <id column="TABID" jdbcType="VARCHAR" property="tabid" />
+    <result column="ISSTARTS" jdbcType="VARCHAR" property="isstarts" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_TABLE_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and TABID = #{tabid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StTableE">
+    insert into dbo.ST_TABLE_E (INSTCD, TABID, ISSTARTS, 
+      MODITIME)
+    values (#{instcd,jdbcType=VARCHAR}, #{tabid,jdbcType=VARCHAR}, #{isstarts,jdbcType=VARCHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StTableE">
+    update dbo.ST_TABLE_E
+    set ISSTARTS = #{isstarts,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and TABID = #{tabid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,INSTCD, TABID, ISSTARTS, MODITIME
+    from dbo.ST_TABLE_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and TABID = #{tabid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INSTCD, TABID, ISSTARTS, MODITIME
+    from dbo.ST_TABLE_E
+  </select>
+</mapper>

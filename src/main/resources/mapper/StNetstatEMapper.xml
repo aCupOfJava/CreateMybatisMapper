@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StNetstatEMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StNetstatE">
+    <id column="INSTCD" jdbcType="VARCHAR" property="instcd" />
+    <id column="CHANGETIME" jdbcType="TIMESTAMP" property="changetime" />
+    <result column="NETTYPE" jdbcType="VARCHAR" property="nettype" />
+    <result column="NETSTATUS" jdbcType="VARCHAR" property="netstatus" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_NETSTAT_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and CHANGETIME = #{changetime,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StNetstatE">
+    insert into dbo.ST_NETSTAT_E (INSTCD, CHANGETIME, NETTYPE, 
+      NETSTATUS)
+    values (#{instcd,jdbcType=VARCHAR}, #{changetime,jdbcType=TIMESTAMP}, #{nettype,jdbcType=VARCHAR}, 
+      #{netstatus,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StNetstatE">
+    update dbo.ST_NETSTAT_E
+    set NETTYPE = #{nettype,jdbcType=VARCHAR},
+      NETSTATUS = #{netstatus,jdbcType=VARCHAR}
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and CHANGETIME = #{changetime,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,INSTCD, CHANGETIME, NETTYPE, NETSTATUS
+    from dbo.ST_NETSTAT_E
+    where INSTCD = #{instcd,jdbcType=VARCHAR}
+      and CHANGETIME = #{changetime,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INSTCD, CHANGETIME, NETTYPE, NETSTATUS
+    from dbo.ST_NETSTAT_E
+  </select>
+</mapper>

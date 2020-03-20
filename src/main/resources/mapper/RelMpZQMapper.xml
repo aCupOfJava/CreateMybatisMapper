@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.RelMpZQMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.RelMpZQ">
+    <id column="MP_CD" jdbcType="CHAR" property="mpCd" />
+    <id column="ENAB_TM" jdbcType="TIMESTAMP" property="enabTm" />
+    <id column="PT_NO" jdbcType="CHAR" property="ptNo" />
+    <result column="CURV_NM" jdbcType="CHAR" property="curvNm" />
+    <result column="Z" jdbcType="NUMERIC" property="z" />
+    <result column="Q" jdbcType="NUMERIC" property="q" />
+    <result column="NT" jdbcType="VARCHAR" property="nt" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.REL_MP_Z_Q
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and ENAB_TM = #{enabTm,jdbcType=TIMESTAMP}
+      and PT_NO = #{ptNo,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.RelMpZQ">
+    insert into dbo.REL_MP_Z_Q (MP_CD, ENAB_TM, PT_NO, 
+      CURV_NM, Z, Q, NT, 
+      TS)
+    values (#{mpCd,jdbcType=CHAR}, #{enabTm,jdbcType=TIMESTAMP}, #{ptNo,jdbcType=CHAR}, 
+      #{curvNm,jdbcType=CHAR}, #{z,jdbcType=NUMERIC}, #{q,jdbcType=NUMERIC}, #{nt,jdbcType=VARCHAR}, 
+      #{ts,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.RelMpZQ">
+    update dbo.REL_MP_Z_Q
+    set CURV_NM = #{curvNm,jdbcType=CHAR},
+      Z = #{z,jdbcType=NUMERIC},
+      Q = #{q,jdbcType=NUMERIC},
+      NT = #{nt,jdbcType=VARCHAR},
+      TS = #{ts,jdbcType=TIMESTAMP}
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and ENAB_TM = #{enabTm,jdbcType=TIMESTAMP}
+      and PT_NO = #{ptNo,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,MP_CD, ENAB_TM, PT_NO, CURV_NM, Z, Q, NT, TS
+    from dbo.REL_MP_Z_Q
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and ENAB_TM = #{enabTm,jdbcType=TIMESTAMP}
+      and PT_NO = #{ptNo,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select MP_CD, ENAB_TM, PT_NO, CURV_NM, Z, Q, NT, TS
+    from dbo.REL_MP_Z_Q
+  </select>
+</mapper>

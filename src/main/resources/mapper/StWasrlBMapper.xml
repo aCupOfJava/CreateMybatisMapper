@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StWasrlBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StWasrlB">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="RLSTCD" jdbcType="CHAR" property="rlstcd" />
+    <id column="RLMRK" jdbcType="CHAR" property="rlmrk" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_WASRL_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and RLSTCD = #{rlstcd,jdbcType=CHAR}
+      and RLMRK = #{rlmrk,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StWasrlB">
+    insert into dbo.ST_WASRL_B (STCD, RLSTCD, RLMRK, MODITIME
+      )
+    values (#{stcd,jdbcType=CHAR}, #{rlstcd,jdbcType=CHAR}, #{rlmrk,jdbcType=CHAR}, #{moditime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StWasrlB">
+    update dbo.ST_WASRL_B
+    set MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and RLSTCD = #{rlstcd,jdbcType=CHAR}
+      and RLMRK = #{rlmrk,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, RLSTCD, RLMRK, MODITIME
+    from dbo.ST_WASRL_B
+    where STCD = #{stcd,jdbcType=CHAR}
+      and RLSTCD = #{rlstcd,jdbcType=CHAR}
+      and RLMRK = #{rlmrk,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, RLSTCD, RLMRK, MODITIME
+    from dbo.ST_WASRL_B
+  </select>
+</mapper>

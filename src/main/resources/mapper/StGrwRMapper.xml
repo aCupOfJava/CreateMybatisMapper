@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StGrwRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StGrwR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="GWBD" jdbcType="NUMERIC" property="gwbd" />
+    <result column="GWBDRMK" jdbcType="CHAR" property="gwbdrmk" />
+    <result column="SPQ" jdbcType="NUMERIC" property="spq" />
+    <result column="GWTMP" jdbcType="NUMERIC" property="gwtmp" />
+    <result column="GWPTN" jdbcType="CHAR" property="gwptn" />
+    <result column="SPQMMT" jdbcType="CHAR" property="spqmmt" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_GRW_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StGrwR">
+    insert into dbo.ST_GRW_R (STCD, TM, GWBD, 
+      GWBDRMK, SPQ, GWTMP, GWPTN, 
+      SPQMMT)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{gwbd,jdbcType=NUMERIC}, 
+      #{gwbdrmk,jdbcType=CHAR}, #{spq,jdbcType=NUMERIC}, #{gwtmp,jdbcType=NUMERIC}, #{gwptn,jdbcType=CHAR}, 
+      #{spqmmt,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StGrwR">
+    update dbo.ST_GRW_R
+    set GWBD = #{gwbd,jdbcType=NUMERIC},
+      GWBDRMK = #{gwbdrmk,jdbcType=CHAR},
+      SPQ = #{spq,jdbcType=NUMERIC},
+      GWTMP = #{gwtmp,jdbcType=NUMERIC},
+      GWPTN = #{gwptn,jdbcType=CHAR},
+      SPQMMT = #{spqmmt,jdbcType=CHAR}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, GWBD, GWBDRMK, SPQ, GWTMP, GWPTN, SPQMMT
+    from dbo.ST_GRW_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, GWBD, GWBDRMK, SPQ, GWTMP, GWPTN, SPQMMT
+    from dbo.ST_GRW_R
+  </select>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StAddvcdDMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StAddvcdD">
+    <id column="ADDVCD" jdbcType="CHAR" property="addvcd" />
+    <result column="ADDVNM" jdbcType="VARCHAR" property="addvnm" />
+    <result column="COMMENTS" jdbcType="VARCHAR" property="comments" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from dbo.ST_ADDVCD_D
+    where ADDVCD = #{addvcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StAddvcdD">
+    insert into dbo.ST_ADDVCD_D (ADDVCD, ADDVNM, COMMENTS, 
+      MODITIME)
+    values (#{addvcd,jdbcType=CHAR}, #{addvnm,jdbcType=VARCHAR}, #{comments,jdbcType=VARCHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StAddvcdD">
+    update dbo.ST_ADDVCD_D
+    set ADDVNM = #{addvnm,jdbcType=VARCHAR},
+      COMMENTS = #{comments,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where ADDVCD = #{addvcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 'true' as QUERYID,ADDVCD, ADDVNM, COMMENTS, MODITIME
+    from dbo.ST_ADDVCD_D
+    where ADDVCD = #{addvcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ADDVCD, ADDVNM, COMMENTS, MODITIME
+    from dbo.ST_ADDVCD_D
+  </select>
+</mapper>

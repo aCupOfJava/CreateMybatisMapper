@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRvdaymyavSMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRvdaymyavS">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="MNTH" jdbcType="NUMERIC" property="mnth" />
+    <id column="DAY" jdbcType="NUMERIC" property="day" />
+    <result column="MYDAVZ" jdbcType="NUMERIC" property="mydavz" />
+    <result column="MYDAVQ" jdbcType="NUMERIC" property="mydavq" />
+    <result column="BGYR" jdbcType="NUMERIC" property="bgyr" />
+    <result column="EDYR" jdbcType="NUMERIC" property="edyr" />
+    <result column="STTYRNUM" jdbcType="NUMERIC" property="sttyrnum" />
+    <result column="COMMENTS" jdbcType="VARCHAR" property="comments" />
+    <result column="MODITIME" jdbcType="TIMESTAMP" property="moditime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_RVDAYMYAV_S
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MNTH = #{mnth,jdbcType=NUMERIC}
+      and `DAY` = #{day,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRvdaymyavS">
+    insert into dbo.ST_RVDAYMYAV_S (STCD, MNTH, `DAY`, 
+      MYDAVZ, MYDAVQ, BGYR, 
+      EDYR, STTYRNUM, COMMENTS, 
+      MODITIME)
+    values (#{stcd,jdbcType=CHAR}, #{mnth,jdbcType=NUMERIC}, #{day,jdbcType=NUMERIC}, 
+      #{mydavz,jdbcType=NUMERIC}, #{mydavq,jdbcType=NUMERIC}, #{bgyr,jdbcType=NUMERIC}, 
+      #{edyr,jdbcType=NUMERIC}, #{sttyrnum,jdbcType=NUMERIC}, #{comments,jdbcType=VARCHAR}, 
+      #{moditime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRvdaymyavS">
+    update dbo.ST_RVDAYMYAV_S
+    set MYDAVZ = #{mydavz,jdbcType=NUMERIC},
+      MYDAVQ = #{mydavq,jdbcType=NUMERIC},
+      BGYR = #{bgyr,jdbcType=NUMERIC},
+      EDYR = #{edyr,jdbcType=NUMERIC},
+      STTYRNUM = #{sttyrnum,jdbcType=NUMERIC},
+      COMMENTS = #{comments,jdbcType=VARCHAR},
+      MODITIME = #{moditime,jdbcType=TIMESTAMP}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MNTH = #{mnth,jdbcType=NUMERIC}
+      and `DAY` = #{day,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, MNTH, `DAY`, MYDAVZ, MYDAVQ, BGYR, EDYR, STTYRNUM, 
+    COMMENTS, MODITIME
+    from dbo.ST_RVDAYMYAV_S
+    where STCD = #{stcd,jdbcType=CHAR}
+      and MNTH = #{mnth,jdbcType=NUMERIC}
+      and `DAY` = #{day,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, MNTH, `DAY`, MYDAVZ, MYDAVQ, BGYR, EDYR, STTYRNUM, COMMENTS, MODITIME
+    from dbo.ST_RVDAYMYAV_S
+  </select>
+</mapper>

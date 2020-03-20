@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StRsvravRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StRsvravR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="IDTM" jdbcType="TIMESTAMP" property="idtm" />
+    <id column="STTDRCD" jdbcType="CHAR" property="sttdrcd" />
+    <result column="AVRZ" jdbcType="NUMERIC" property="avrz" />
+    <result column="AVINQ" jdbcType="NUMERIC" property="avinq" />
+    <result column="AVOTQ" jdbcType="NUMERIC" property="avotq" />
+    <result column="AVW" jdbcType="NUMERIC" property="avw" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_RSVRAV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StRsvravR">
+    insert into dbo.ST_RSVRAV_R (STCD, IDTM, STTDRCD, 
+      AVRZ, AVINQ, AVOTQ, 
+      AVW)
+    values (#{stcd,jdbcType=CHAR}, #{idtm,jdbcType=TIMESTAMP}, #{sttdrcd,jdbcType=CHAR}, 
+      #{avrz,jdbcType=NUMERIC}, #{avinq,jdbcType=NUMERIC}, #{avotq,jdbcType=NUMERIC}, 
+      #{avw,jdbcType=NUMERIC})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StRsvravR">
+    update dbo.ST_RSVRAV_R
+    set AVRZ = #{avrz,jdbcType=NUMERIC},
+      AVINQ = #{avinq,jdbcType=NUMERIC},
+      AVOTQ = #{avotq,jdbcType=NUMERIC},
+      AVW = #{avw,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, IDTM, STTDRCD, AVRZ, AVINQ, AVOTQ, AVW
+    from dbo.ST_RSVRAV_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and IDTM = #{idtm,jdbcType=TIMESTAMP}
+      and STTDRCD = #{sttdrcd,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, IDTM, STTDRCD, AVRZ, AVINQ, AVOTQ, AVW
+    from dbo.ST_RSVRAV_R
+  </select>
+</mapper>

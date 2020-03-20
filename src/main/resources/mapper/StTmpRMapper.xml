@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StTmpRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StTmpR">
+    <id column="STCD" jdbcType="CHAR" property="stcd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="ATMP" jdbcType="NUMERIC" property="atmp" />
+    <result column="WTMP" jdbcType="NUMERIC" property="wtmp" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_TMP_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StTmpR">
+    insert into dbo.ST_TMP_R (STCD, TM, ATMP, 
+      WTMP)
+    values (#{stcd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{atmp,jdbcType=NUMERIC}, 
+      #{wtmp,jdbcType=NUMERIC})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StTmpR">
+    update dbo.ST_TMP_R
+    set ATMP = #{atmp,jdbcType=NUMERIC},
+      WTMP = #{wtmp,jdbcType=NUMERIC}
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, TM, ATMP, WTMP
+    from dbo.ST_TMP_R
+    where STCD = #{stcd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, TM, ATMP, WTMP
+    from dbo.ST_TMP_R
+  </select>
+</mapper>

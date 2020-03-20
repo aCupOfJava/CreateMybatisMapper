@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.WrMpZRMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.WrMpZR">
+    <id column="MP_CD" jdbcType="CHAR" property="mpCd" />
+    <id column="TM" jdbcType="TIMESTAMP" property="tm" />
+    <result column="MP_Z" jdbcType="NUMERIC" property="mpZ" />
+    <result column="SPE_REG_DATA" jdbcType="CHAR" property="speRegData" />
+    <result column="TS" jdbcType="TIMESTAMP" property="ts" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.WR_MP_Z_R
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.WrMpZR">
+    insert into dbo.WR_MP_Z_R (MP_CD, TM, MP_Z, 
+      SPE_REG_DATA, TS)
+    values (#{mpCd,jdbcType=CHAR}, #{tm,jdbcType=TIMESTAMP}, #{mpZ,jdbcType=NUMERIC}, 
+      #{speRegData,jdbcType=CHAR}, #{ts,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.WrMpZR">
+    update dbo.WR_MP_Z_R
+    set MP_Z = #{mpZ,jdbcType=NUMERIC},
+      SPE_REG_DATA = #{speRegData,jdbcType=CHAR},
+      TS = #{ts,jdbcType=TIMESTAMP}
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,MP_CD, TM, MP_Z, SPE_REG_DATA, TS
+    from dbo.WR_MP_Z_R
+    where MP_CD = #{mpCd,jdbcType=CHAR}
+      and TM = #{tm,jdbcType=TIMESTAMP}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select MP_CD, TM, MP_Z, SPE_REG_DATA, TS
+    from dbo.WR_MP_Z_R
+  </select>
+</mapper>

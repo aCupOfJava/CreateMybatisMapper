@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitel.yc.daoyc.mapper.sqlserverMapper.baseMapper.dbo.StFlrlBMapper">
+  <resultMap id="BaseResultMap" type="com.elitel.yc.entity.baseEntity.StFlrlB">
+    <id column="STCD" jdbcType="VARCHAR" property="stcd" />
+    <id column="LNNM" jdbcType="VARCHAR" property="lnnm" />
+    <result column="MAXVALUE" jdbcType="VARCHAR" property="maxvalue" />
+    <result column="MODITM" jdbcType="TIMESTAMP" property="moditm" />
+    <result column="CURLINENM" jdbcType="VARCHAR" property="curlinenm" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from dbo.ST_FLRL_B
+    where STCD = #{stcd,jdbcType=VARCHAR}
+      and LNNM = #{lnnm,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.elitel.yc.entity.baseEntity.StFlrlB">
+    insert into dbo.ST_FLRL_B (STCD, LNNM, `MAXVALUE`, 
+      MODITM, CURLINENM)
+    values (#{stcd,jdbcType=VARCHAR}, #{lnnm,jdbcType=VARCHAR}, #{maxvalue,jdbcType=VARCHAR}, 
+      #{moditm,jdbcType=TIMESTAMP}, #{curlinenm,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.elitel.yc.entity.baseEntity.StFlrlB">
+    update dbo.ST_FLRL_B
+    set `MAXVALUE` = #{maxvalue,jdbcType=VARCHAR},
+      MODITM = #{moditm,jdbcType=TIMESTAMP},
+      CURLINENM = #{curlinenm,jdbcType=VARCHAR}
+    where STCD = #{stcd,jdbcType=VARCHAR}
+      and LNNM = #{lnnm,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 'true' as QUERYID,STCD, LNNM, `MAXVALUE`, MODITM, CURLINENM
+    from dbo.ST_FLRL_B
+    where STCD = #{stcd,jdbcType=VARCHAR}
+      and LNNM = #{lnnm,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STCD, LNNM, `MAXVALUE`, MODITM, CURLINENM
+    from dbo.ST_FLRL_B
+  </select>
+</mapper>
